@@ -1,36 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/02 22:28:32 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/02/26 10:58:09 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/02/26 13:42:01 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long       ft_atoi(char *src)
+void *ft_memchr(const void *s, int c, size_t n)
 {
-    int         sign;
-    long long   num;
+    unsigned char *str;
+    size_t  i;
 
-    sign = 1;
-    num = 0;
-    while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-		src++;
-    if (*src == '+' || *src == '-')
+    i = -1;
+    str = (unsigned char *)s;
+    while (++i < n)
     {
-        if(*src == '-')
-            sign = -1;
-        src++;
+        if (str[i] == (unsigned char)c)
+            return ((unsigned char *)&s[i]);
     }
-    while (*src >= '0' && *src <= '9')
-    {
-        num = (num * 10) + (*src - '0');
-        src++;
-    }
-    return (sign * num);
+    return (NULL);
 }

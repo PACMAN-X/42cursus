@@ -1,36 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/02 22:28:32 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/02/27 16:26:14 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/02/27 16:27:14 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long       ft_atoi(char *src)
+void    ft_putchar_fd(char c, int fd)
 {
-    int         sign;
-    long long   num;
-
-    sign = 1;
-    num = 0;
-    while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-		src++;
-    if (*src == '+' || *src == '-')
-    {
-        if(*src == '-')
-            sign = -1;
-        src++;
-    }
-    while (*src >= '0' && *src <= '9')
-    {
-        num = (num * 10) + (*src - '0');
-        src++;
-    }
-    return (sign * num);
+    write(fd, &c, 1);
 }

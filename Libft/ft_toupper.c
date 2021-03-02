@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/02 22:28:32 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/02/27 00:32:14 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/02/27 00:58:33 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long       ft_atoi(char *src)
+int	ft_toupper(int c)
 {
-    int         sign;
-    long long   num;
-
-    sign = 1;
-    num = 0;
-    while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-		src++;
-    if (*src == '+' || *src == '-')
-    {
-        if(*src == '-')
-            sign = -1;
-        src++;
-    }
-    while (*src >= '0' && *src <= '9')
-    {
-        num = (num * 10) + (*src - '0');
-        src++;
-    }
-    return (sign * num);
+	if (ft_isalpha(c) == 2)
+		return (c - 32);
+	return (c);
 }

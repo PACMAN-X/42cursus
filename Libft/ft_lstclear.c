@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/02 22:28:32 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/03/01 21:26:14 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/03/01 21:30:26 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long       ft_atoi(char *src)
+void ft_lstclear(t_list **lst, void (*del)(void *))
 {
-    int         sign;
-    long long   num;
+    t_list *tmp;
 
-    sign = 1;
-    num = 0;
-    while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-		src++;
-    if (*src == '+' || *src == '-')
+    if(!lst || !del)
+        return;
+    while(*lst)
     {
-        if(*src == '-')
-            sign = -1;
-        src++;
+        tmp = (*lst)->next;
+        ft_lstdelone(*lst, del);
+        *lst = tmp;
     }
-    while (*src >= '0' && *src <= '9')
-    {
-        num = (num * 10) + (*src - '0');
-        src++;
-    }
-    return (sign * num);
 }

@@ -1,36 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/02 22:28:32 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/02/26 00:46:23 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/02/26 10:57:59 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-long long       ft_atoi(char *src)
+void	*ft_memmove(void *dst, const void *src, size_t n)
 {
-    int         sign;
-    long long   num;
+    unsigned char *tmp;
+    unsigned const char *str;
+    size_t i;
 
-    sign = 1;
-    num = 0;
-    while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
-		src++;
-    if (*src == '+' || *src == '-')
+    tmp = dst;
+    str = src;
+    
+    i = tmp > str ? n + 1 : -1;
+    if (tmp != str && n)
     {
-        if(*src == '-')
-            sign = -1;
-        src++;
+        if (tmp > str)
+            while (--i)
+                tmp[i - 1] = str[i - 1];
+        else
+            while (++i < n)
+                tmp[i] = str[i]; 
     }
-    while (*src >= '0' && *src <= '9')
-    {
-        num = (num * 10) + (*src - '0');
-        src++;
-    }
-    return (sign * num);
+    return (dst);
 }
