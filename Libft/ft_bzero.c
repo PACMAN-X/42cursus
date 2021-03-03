@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/25 02:16:38 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/02/25 02:27:03 by kimtaeseon       ###   ########.fr       */
+/*   Updated: 2021/03/03 15:07:53 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	unsigned char	*str = s;
+	unsigned char	*str;
 
+	str = s;
 	while (n--)
 		*str++ = 0;
 }

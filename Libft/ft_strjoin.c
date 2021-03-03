@@ -3,18 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 22:05:11 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/02/27 22:33:22 by kimtaeseon       ###   ########.fr       */
+/*   Updated: 2021/03/03 17:02:19 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-    char	*s;
+	char	*s;
 	size_t	i;
 	size_t	j;
 
@@ -28,4 +28,3 @@ char *ft_strjoin(char const *s1, char const *s2)
 	ft_strlcpy(s + i, s2, j + 1);
 	return (s);
 }
-

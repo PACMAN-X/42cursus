@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+         #
+#    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/01/04 23:33:40 by kimtaeseon        #+#    #+#              #
-#    Updated: 2021/03/02 20:59:08 by kimtaeseon       ###   ########.fr        #
+#    Updated: 2021/03/03 18:16:49 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,7 +32,8 @@ SRCS = ft_memset.c  \
 		ft_isdigit.c \
 		ft_isdigit.c \
 		ft_isalnum.c \
-		ft_isalnum.c \
+		ft_isascii.c \
+		ft_isprint.c \
 		ft_toupper.c \
 		ft_tolower.c \
 		ft_strmapi.c \
@@ -57,14 +58,15 @@ SRCS = ft_memset.c  \
 RM = rm -f
 CC = gcc 
 OBJS = ${SRCS:.c=.o}
-CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
+# CFLAGS = -Wall -Werror -Wextra -g3 -fsanitize=address
+CFLAGS = -Wall -Werror -Wextra
 
 all: $(NAME)
 
 $(NAME):
 	$(CC) $(CFLAGS) -c $(SRCS)
 	ar rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+# ranlib $(NAME)
 
 clean:
 	$(RM) $(OBJS)
