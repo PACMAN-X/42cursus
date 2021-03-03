@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:47:15 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/03 16:41:58 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/03/03 18:56:29 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	while (*s && *s != (char)c)
+	char	cc;
+
+	cc = (char)c;
+	while (*s && *s != cc)
 		++s;
-	return (*s == (char)c ? (char *)s : NULL);
+	return (*s == cc ? (char *)s : NULL);
 }

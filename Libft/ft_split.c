@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/28 22:31:41 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/03 18:14:43 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/03/03 19:13:11 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ size_t			trimmed_len_of(char const *s, char c)
 	cc = 1;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s == c && *(s + 1) != c && *(s + 1) != '\0')
 			cc++;
 		s++;
 	}

@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 16:36:12 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/03 17:09:53 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/03/03 18:50:44 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,11 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char	*buf;
+	size_t	str_len;
 
+	str_len = ft_strlen(s);
+	len = len < str_len - start ? len : str_len - start;
+	len = str_len < len ? str_len : len;
 	if (!s || !(buf = (char *)malloc(len + 1)))
 		return (NULL);
 	if ((size_t)start >= ft_strlen(s) || !(ft_strlcpy(buf, s + start, len + 1)))
