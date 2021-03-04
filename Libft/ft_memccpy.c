@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 00:18:23 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/03 19:46:49 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/03/04 14:41:57 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
 	i = 0;
 	tmp = (unsigned char *)dest;
 	str = (unsigned char *)src;
-	cc = (unsigned char) c;
+	cc = (unsigned char)c;
 	while (i < n)
 	{
 		tmp[i] = str[i];
