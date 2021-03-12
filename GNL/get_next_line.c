@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:09:44 by taeskim           #+#    #+#             */
-/*   Updated: 2021/03/09 15:14:02 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/03/12 18:52:20 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,23 @@ int get_next_line(int fd, char **line)
 
 	len = 0;
 	inputStr = line;
-	while (fd > 0)
-	{
-		printf("%d\n",fd);
-		printf("%c\n", **line);
-	}
+	
 	return (len);	
+}
+
+int main()
+{
+	int		j;
+	char	*line = 0;
+	int fd;
+
+	fd = open("./test.txt", O_RDONLY);
+
+	while (get_next_line(fd, &line) > 0)
+	{
+		printf("%s\n", line);
+		free(line);
+		j++;
+	}
+	free(line);
 }
