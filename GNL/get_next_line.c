@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/08 18:09:44 by taeskim           #+#    #+#             */
-/*   Updated: 2021/03/12 18:52:20 by kimtaeseon       ###   ########.fr       */
+/*   Created: 2021/03/12 19:14:49 by kimtaeseon        #+#    #+#             */
+/*   Updated: 2021/03/12 19:15:29 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,10 @@
 
 int get_next_line(int fd, char **line)
 {
-	int len;
-	char **inputStr;
+	int fdInput;
+	char **lineInput;
 
-	len = 0;
-	inputStr = line;
-	
-	return (len);	
+	return (0);
 }
 
 int main()
