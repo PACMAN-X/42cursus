@@ -6,7 +6,7 @@
 /*   By: kimtaeseon <kimtaeseon@student.42.fr>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/12 19:14:49 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/12 19:15:29 by kimtaeseon       ###   ########.fr       */
+/*   Updated: 2021/03/14 21:57:30 by kimtaeseon       ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,9 @@
 
 int get_next_line(int fd, char **line)
 {
-	int fdInput;
-	char **lineInput;
+	printf("This is fd : %d\n",fd);
+	printf("This is line : %p\n",line);
+	printf("This is *line : %p\n", *line);
 
 	return (0);
-}
-
-int main()
-{
-	int		j;
-	char	*line = 0;
-	int fd;
-
-	fd = open("./test.txt", O_RDONLY);
-
-	while (get_next_line(fd, &line) > 0)
-	{
-		printf("%s\n", line);
-		free(line);
-		j++;
-	}
-	free(line);
 }
