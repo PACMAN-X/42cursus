@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/05 16:14:00 by pac-man           #+#    #+#             */
-/*   Updated: 2021/04/08 15:54:23 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/04/11 23:10:47 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,24 +60,47 @@ int get_next_line(int fd, char **line)
 	원문을 참고 하기 바란다.
 */
 	char	*buf;
+	static char *backup;
+	/* 1.7 state가 0보다 크다는 것은 error가 없고, 읽어 드린 값이 있다는 의미이다. 읽어 드린 값은 buf에 저장이 되어 있기 때문에 이것은 backup에 하나하나 넣어줘야 한다.*/
 	int state;
+	/*1.8 OPEN_MAX 저장을 할때 세로축과 가로축을 생각해 볼 수 있다. 즉, 가로축은 get_next_line으로 읽은 문장을 하나하나 저장하는 공간이다.
+		세로축은 읽어 들일 수 있는 파일의 갯수 이다.
+		통상 파일디스크립터는 0 ~ OPEN_MAX까지의 값을 가질 수 있다.
+		프로세스에 따라 달라지기 때문에 limit.h 라이브러리를 활용해 OPEN_MAX를 사용하도록 하자.
+	*/
 
 	buf = (char *)malloc(BUFFER_SIZE + 1);
-	state = read(fd, buf, BUFFER_SIZE);
+	backup = (char *)malloc(OPEN_MAX);
 	/* 1.6 BUFFER_SIZE
 		해당하는 값을 전처리기를 통해서 잘 들어오는지 확인할 수 있었다.
 	*/
-	printf("===============start============================\n");
-	printf("this is the reade value: %d \n", state);
-	printf("this is the read char : %c\n", *buf);
-	printf("===============end============================\n");
-	// while (readValue > 0)
+
+	
+	// printf("this is the start of backup \n");
+	/* 1.8 문제점 발견
+	read를 하게 되면 주어진 BUFF_SIZE만큼만 읽고 종료 된다. 하지만 우리가 원하는 것은 BUFF_SIZE만큼 전체 내용을 다 읽는 것이다. nextline을 읽도록 해야 하는데.. 어떻게 해야 할까?
+	What happens when a process opens a file? A process may have several open files which it may be reading from and writing to. 
+	It also has a current position within the file, which is the next byte to be read or written. Each process has its own array to keep track of
+	*/
+
+	while ((state = read(fd, buf, BUFFER_SIZE)) > 0)
+	{
+		buf[state] = '\0';
+		*line = buf;
+		// printf("============start================\n");
+		printf("this is the read_value: %s \n", buf);
+		// printf("this is the read_value: %s \n", *line);
+		// printf("============end==================\n");
+	}
+	
+	// while (state > 0)
 	// {
-	// 	printf("this is the sentence : %c\n", *buf);
-		printf("this is the **line : %p\n", line);
-	// 	return (1);
+	// 	printf("this is the start of backup");
+	// 	append_line(&backup[fd]);
 	// }
-	free(buf);
+
+	// printf("this is the **line %p\n", line);
+	
 	
 	return (0);
 }

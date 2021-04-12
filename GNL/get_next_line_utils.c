@@ -6,18 +6,9 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:06:37 by taeskim           #+#    #+#             */
-/*   Updated: 2021/03/15 15:28:30 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/04/09 02:01:05 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t get_strlen(const char *s)
-{
-	size_t i;
-	i = 0;
-	
-	while(s[i])
-		i++;
-	return (i);
-}
