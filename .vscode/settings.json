@@ -1,0 +1,13 @@
+{
+	"files.associations": {
+		"*.vue": "html",
+		"str.h": "c",
+		"human.h": "c",
+		"algorithm": "c",
+		"cmath": "c",
+		"complex": "c",
+		"functional": "c",
+		"locale": "c",
+		"__locale": "c"
+	}
+}
