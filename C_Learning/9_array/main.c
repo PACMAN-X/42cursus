@@ -9,7 +9,7 @@ void sum(int count)
 	input = 0;
 	if (count > 1)
 		sum(count - 1);
-	
+
 	printf("%d 번째 학생의 점수는?", count);
 	scanf("%d", &input);
 
@@ -30,5 +30,5 @@ int main()
 	sum(count);
 
 	printf("평균점수는 : %d\n", average / count);
-	return (0); 
+	return (0);
 }
