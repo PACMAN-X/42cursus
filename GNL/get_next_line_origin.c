@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_origin.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/09 17:44:50 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/09 16:44:18 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@ int get_next_line(int fd, char **line)
 {
 	static char *back_up;
 	char buff[BUFFER_SIZE + 1];
-	size_t index;
 	size_t offset;
 	size_t read_size;
 
@@ -34,25 +33,15 @@ int get_next_line(int fd, char **line)
 	{
 		if (back_up[offset] != '\n')
 		{
-			// 2.3 line에 backup의 offset만큼만 대입.
-			*line = (char *)malloc(offset + 1);
-			*line[offset] = 0;
-			index = 0;
-			while (index < offset)
-			{
-				*line[index] = back_up[index];
-				index++;
-			}
+			// line에 backup의 offset만큼만 대입.
 			// backup은, line만큼 제거 (앞으로 당겨도 되고, 새로 만들어도 되고, 이건 마음대로)
-			while (back_up[offset])
-			{
-				back_up[offset - index] = back_up[offset + 1];
-				offset++;
-			}
 			return (1);
 		}
 		offset++;
 	}
+	// offset
+	// 있으면 전달
+
 	// 3. 없으면 back_up을 만들기
 	read_size = read(fd, buff, BUFFER_SIZE);
 	buff[read_size] = 0;

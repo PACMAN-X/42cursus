@@ -1,12 +1,15 @@
-#include <util.h>
+#include "util.h"
 
 int main()
 {
-	char *str;
+	int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
 
-	str = "abc";
+	// printf("%p\n", str);
+	// printf("%p\n", str + 1);
 
-	printf("%d", gnl(str));
+	// gnl(str);
+
+	printf("This is the arr: %p\n", arr);
 
 	return (0);
 }
