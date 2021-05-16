@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:09:19 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/09 16:13:58 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/09 19:07:18 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,6 @@
 #endif
 
 int get_next_line(int fd, char **line);
+char *ft_strjoin(char const *s1, char const *s2);
 
 #endif

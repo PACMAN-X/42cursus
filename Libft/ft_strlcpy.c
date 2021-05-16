@@ -6,15 +6,15 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/27 01:07:45 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/03 16:41:09 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/09 20:23:32 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t	i;
+	size_t i;
 
 	i = 0;
 	if (!src)

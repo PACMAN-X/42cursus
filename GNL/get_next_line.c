@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/09 17:44:50 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/16 18:35:26 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int get_next_line(int fd, char **line)
 {
-	static char *back_up;
+	static char back_up[OPEN_MAX];
 	char buff[BUFFER_SIZE + 1];
 	size_t index;
 	size_t offset;
@@ -30,9 +30,10 @@ int get_next_line(int fd, char **line)
 	// 2. back_up에 전달할 내용이 있다 없나 확인
 	// 2.1 개행이 있는지 확인
 	// 2.2 끝을 만났을 경우도 고려
+
 	while (back_up[offset])
 	{
-		if (back_up[offset] != '\n')
+		if (back_up[offset] == '\n')
 		{
 			// 2.3 line에 backup의 offset만큼만 대입.
 			*line = (char *)malloc(offset + 1);
@@ -53,14 +54,12 @@ int get_next_line(int fd, char **line)
 		}
 		offset++;
 	}
+
 	// 3. 없으면 back_up을 만들기
 	read_size = read(fd, buff, BUFFER_SIZE);
 	buff[read_size] = 0;
 	if (read_size >= 0)
 	{
-		// back_up.append(buff);
-		// ft_strjoin();
+		back_up[0] = ft_strjoin(back_up, buff);
 	}
-	// 4. 2번으로 가시오.
-	// goto while (back_up[offset])
 }

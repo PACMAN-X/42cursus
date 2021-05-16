@@ -6,15 +6,15 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 13:50:35 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/04 10:15:51 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/09 19:11:31 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+size_t ft_strlen(const char *s)
 {
-	size_t	i;
+	size_t i;
 
 	if (!*s)
 		return (0);
