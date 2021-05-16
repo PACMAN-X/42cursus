@@ -8,6 +8,7 @@
 		"complex": "c",
 		"functional": "c",
 		"locale": "c",
-		"__locale": "c"
+		"__locale": "c",
+		"chrono": "c"
 	}
 }

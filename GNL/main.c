@@ -12,10 +12,10 @@ int main(void)
 	while (0 < (rst = get_next_line(fd, &line)))
 	{
 		printf("%4d: [%s]\n", rst, line);
-		// free(line);
+		free(line);
 	}
 	printf("%4d: [%s]\n", rst, line);
-	// free(line);
+	free(line);
 
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:09:19 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/09 00:44:43 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/14 00:26:59 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,3 +20,7 @@
 #endif
 
 int get_next_line(int fd, char **line);
+size_t ft_strlen(const char *s);
+size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
+char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strdup(const char *s);
