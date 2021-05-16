@@ -2,14 +2,12 @@
 
 int main()
 {
-	int arr[10] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 0};
+	char *arr = "ab";
 
-	// printf("%p\n", str);
-	// printf("%p\n", str + 1);
-
-	// gnl(str);
-
-	printf("This is the arr: %p\n", arr);
-
-	return (0);
+	printf("변경전 주소: %p\n", arr);
+	printf("변경전 값: %c\n", arr[0]);
+	arr = arr + 1;
+	(arr - 1)[0] = 0;
+	printf("변경후 주소: %p\n", arr);
+	printf("변경후 값: %c\n", (arr - 1)[0]);
 }
