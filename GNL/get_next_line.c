@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/16 18:36:04 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/16 18:54:14 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int get_next_line(int fd, char **line)
 
 		while (tmp[++offset])
 		{
+			printf("this is the line")
 			if (tmp[offset] == '\n')
 			{
 				index = -1;
@@ -75,9 +76,8 @@ int get_next_line(int fd, char **line)
 				*line[offset] = 0;
 				while (tmp[++index])
 				{
-
 					*line[index] = tmp[index];
-					printf("✅index: %zu, offset: %c\n", index, tmp[offset + index + 1]);
+					
 					tmp[index] = tmp[offset + index + 1];
 				}
 				return (1);
@@ -85,7 +85,7 @@ int get_next_line(int fd, char **line)
 		}
 		read_size = read(fd, buff, BUFFER_SIZE);
 	}
-
+	
 	/*✅ 2.2
 	back_up에 값은 있지만 \n으로 끝나지 않은 경우
 	그렇다면 다시 읽는 작업이 필요함.

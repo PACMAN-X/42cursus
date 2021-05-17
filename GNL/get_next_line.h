@@ -6,12 +6,9 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:09:19 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/16 18:37:02 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/16 18:39:51 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#ifndef GET_NEXT_LINE_H
-#define GET_NEXT_LINE_H
 
 #include <unistd.h>
 #include <stdlib.h>
