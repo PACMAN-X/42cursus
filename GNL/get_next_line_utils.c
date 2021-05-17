@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:06:37 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/17 02:11:50 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/17 19:10:34 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,6 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
 {
 	unsigned char *tmp;
 	unsigned const char *str;
-
 	tmp = dest;
 	str = src;
 	if (!n || dest == src)

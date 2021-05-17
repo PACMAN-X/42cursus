@@ -6,18 +6,18 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/26 00:18:23 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/04 14:41:57 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/17 18:54:00 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void				*ft_memccpy(void *dest, const void *src, int c, size_t n)
+void *ft_memccpy(void *dest, const void *src, int c, size_t n)
 {
-	size_t			i;
-	unsigned char	*tmp;
-	unsigned char	*str;
-	unsigned char	cc;
+	size_t i;
+	unsigned char *tmp;
+	unsigned char *str;
+	unsigned char cc;
 
 	i = 0;
 	tmp = (unsigned char *)dest;

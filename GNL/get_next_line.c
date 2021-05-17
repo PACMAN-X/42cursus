@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/17 22:20:21 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/17 22:22:16 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int get_next_line(int fd, char **line)
 	size_t index;
 
 	back_up[fd] = ft_strdup("");
+	printf("🧡%s\n", back_up[fd]);
 
 	if (!line || read(fd, buff, 0) || BUFFER_SIZE < 1)
 		return (-1);
@@ -40,7 +41,6 @@ int get_next_line(int fd, char **line)
 			while (tmp[++index] != '\n')
 				(*line)[index] = tmp[index];
 
-			ft_memcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - ft_strlen(*line));
 			return (1);
 		}
 	}
@@ -49,32 +49,26 @@ int get_next_line(int fd, char **line)
 
 	while (read_size > 0)
 	{
-		index = -1;
 		offset = -1;
-		tmp = (char *)malloc(read_size + 1);
-		buff[read_size] = 0;
+		back_up[fd] = ft_strjoin(back_up[fd], buff);
 
-		while (buff[++index])
-			tmp[index] = buff[index];
-
-		back_up[fd] = ft_strjoin(back_up[fd], tmp);
-		// printf("✅lenth: %zu, string: %s, tmp: %s\n", ft_strlen(back_up[fd]), tmp, back_up[fd]);
-		free(tmp);
-
-		tmp = back_up[fd];
-
-		while (tmp[++offset])
+		while (back_up[fd][++offset])
 		{
-			if (tmp[offset] == '\n')
+			if (back_up[fd][offset] == '\n')
 			{
-				printf("✅%zu: %s\n", index, buff);
 				index = -1;
 				*line = (char *)malloc(offset + 1);
 				(*line)[offset] = 0;
 
-				while (tmp[++index] != '\n')
-					(*line)[index] = tmp[index];
-				ft_memcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - ft_strlen(*line));
+				while (back_up[fd][++index] != '\n')
+					(*line)[index] = back_up[fd][index];
+
+				// printf("💚%s offset: %zu, back_up[offset]: %s ========\n", back_up[fd], offset, back_up[offset]);
+				index = -1;
+				while (back_up[fd][++index])
+				{
+					printf("💚%s offset: %zu, back_up[offset]: %c ========\n", back_up[fd], offset, back_up[fd][index]);
+				}
 
 				return (1);
 			}
