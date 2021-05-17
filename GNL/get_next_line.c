@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/16 18:54:14 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/17 16:32:30 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,9 @@ int get_next_line(int fd, char **line)
 	size_t index;
 
 	back_up[fd] = ft_strdup("");
-	// 1. 예외 처리
-	if (!line || read(fd, buff, 0))
+
+	if (!line || read(fd, buff, 0) || BUFFER_SIZE < 1)
 		return (-1);
-	// 2. back_up에 있는지 확인
 
 	tmp = back_up[fd];
 
@@ -34,19 +33,14 @@ int get_next_line(int fd, char **line)
 	{
 		if (tmp[offset] == '\n')
 		{
-			/*✅ 2.1
-			back_up의 offset에서 \n을 만남.
-			line에 back_up의 값들을 복사.
-			1을 반환.
-			*/
 			index = -1;
 			*line = (char *)malloc(offset + 1);
-			*line[offset] = 0;
-			while (tmp[++index])
-			{
-				*line[index] = tmp[index];
-				tmp[index] = tmp[offset + index + 1];
-			}
+			(*line)[offset] = 0;
+
+			while (tmp[++index] != '\n')
+				(*line)[index] = tmp[index];
+
+			ft_memcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - ft_strlen(*line));
 			return (1);
 		}
 	}
@@ -57,41 +51,41 @@ int get_next_line(int fd, char **line)
 	{
 		index = -1;
 		offset = -1;
-		*line = (char *)malloc(read_size + 1);
-		line[read_size] = 0;
+		tmp = (char *)malloc(read_size + 1);
+		buff[read_size] = 0;
 
 		while (buff[++index])
-			*line[index] = buff[index];
+			tmp[index] = buff[index];
 
-		back_up[fd] = ft_strjoin(back_up[fd], *line);
+		back_up[fd] = ft_strjoin(back_up[fd], tmp);
+		// printf("✅lenth: %zu, string: %s, tmp: %s\n", ft_strlen(back_up[fd]), tmp, back_up[fd]);
+		free(tmp);
+
 		tmp = back_up[fd];
 
 		while (tmp[++offset])
 		{
-			printf("this is the line")
-			if (tmp[offset] == '\n')
+			printf("this is the line") if (tmp[offset] == '\n')
 			{
+				printf("✅%zu: %s\n", index, buff);
 				index = -1;
 				*line = (char *)malloc(offset + 1);
-				*line[offset] = 0;
-				while (tmp[++index])
-				{
-					*line[index] = tmp[index];
-					
-					tmp[index] = tmp[offset + index + 1];
-				}
+				(*line)[offset] = 0;
+
+				while (tmp[++index] != '\n')
+					(*line)[index] = tmp[index];
+				ft_memcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - ft_strlen(*line));
+
 				return (1);
 			}
 		}
 		read_size = read(fd, buff, BUFFER_SIZE);
 	}
-	
-	/*✅ 2.2
-	back_up에 값은 있지만 \n으로 끝나지 않은 경우
-	그렇다면 다시 읽는 작업이 필요함.
-	*/
 
-	// 3. read로 읽기
-
+	if (back_up[fd])
+	{
+		*line = back_up[fd];
+		return (0);
+	}
 	return (0);
 }
