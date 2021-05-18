@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/17 22:22:16 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/19 01:02:24 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int get_next_line(int fd, char **line)
 	size_t read_size;
 	size_t index;
 
-	back_up[fd] = ft_strdup("");
-	printf("🧡%s\n", back_up[fd]);
+	if (!(back_up[fd]))
+		back_up[fd] = ft_strdup("");
 
 	if (!line || read(fd, buff, 0) || BUFFER_SIZE < 1)
 		return (-1);
@@ -63,12 +63,11 @@ int get_next_line(int fd, char **line)
 				while (back_up[fd][++index] != '\n')
 					(*line)[index] = back_up[fd][index];
 
-				// printf("💚%s offset: %zu, back_up[offset]: %s ========\n", back_up[fd], offset, back_up[offset]);
-				index = -1;
-				while (back_up[fd][++index])
-				{
-					printf("💚%s offset: %zu, back_up[offset]: %c ========\n", back_up[fd], offset, back_up[fd][index]);
-				}
+				// index = -1;
+				// while (back_up[fd][++index])
+				// {
+				// 	printf("💚%s offset: %zu, back_up[offset]: %c ========\n", back_up[fd], offset, back_up[fd][index]);
+				// }
 
 				return (1);
 			}
