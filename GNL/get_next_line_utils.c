@@ -6,15 +6,15 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:06:37 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/17 19:10:34 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/18 23:38:54 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t ft_strlen(const char *s)
+size_t		ft_strlen(const char *s)
 {
-	size_t i;
+	size_t	i;
 
 	if (!*s)
 		return (0);
@@ -23,23 +23,11 @@ size_t ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-void *ft_memcpy(void *dest, const void *src, size_t n)
-{
-	unsigned char *tmp;
-	unsigned const char *str;
-	tmp = dest;
-	str = src;
-	if (!n || dest == src)
-		return (dest);
-	while (n--)
-		*tmp++ = *str++;
-	return (dest);
-}
 
-char *ft_strdup(const char *s)
+char		*ft_strdup(const char *s)
 {
-	size_t len;
-	char *buf;
+	size_t	len;
+	char	*buf;
 
 	len = ft_strlen(s);
 	if (!(buf = (char *)malloc(len + 1)))
@@ -48,9 +36,9 @@ char *ft_strdup(const char *s)
 	return (buf);
 }
 
-size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
+size_t		ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	size_t i;
+	size_t	i;
 
 	i = 0;
 	if (!src)
@@ -64,28 +52,22 @@ size_t ft_strlcpy(char *dst, const char *src, size_t dstsize)
 		}
 		dst[i] = '\0';
 	}
-
-	while (src[i])
-		++i;
 	return (i);
 }
 
-char *ft_strjoin(char const *s1, char const *s2)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	char *s;
-	size_t i;
-	size_t j;
+	char	*s;
+	size_t	i;
+	size_t	j;
 
 	if (!s1 || !s2)
 		return (NULL);
 	i = ft_strlen(s1);
 	j = ft_strlen(s2);
-
 	if (!(s = (char *)malloc(i + j + 1)))
 		return (NULL);
-
 	ft_strlcpy(s, s1, i + 1);
 	ft_strlcpy(s + i, s2, j + 1);
-
 	return (s);
 }

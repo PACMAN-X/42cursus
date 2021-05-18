@@ -3,83 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/17 22:22:16 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/19 00:01:53 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-int get_next_line(int fd, char **line)
+void			*replace(char **out, char *src)
 {
-	static char *back_up[OPEN_MAX];
-	char buff[BUFFER_SIZE + 1];
-	char *tmp;
-	size_t offset;
-	size_t read_size;
-	size_t index;
+	if (*out)
+		free(*out);
+	*out = src;
+	return (*out);
+}
 
-	back_up[fd] = ft_strdup("");
-	printf("🧡%s\n", back_up[fd]);
+int				get_next_line(int fd, char **line)
+{
+	static char	*back_up[OPEN_MAX];
+	char		buff[BUFFER_SIZE + 1];
+	int			read_size;
+	size_t		offset;
+	size_t		index;
 
 	if (!line || read(fd, buff, 0) || BUFFER_SIZE < 1)
 		return (-1);
-
-	tmp = back_up[fd];
-
+	if (!back_up[fd])
+		back_up[fd] = ft_strdup("");
 	offset = -1;
-	while (tmp[++offset])
+	while (back_up[fd][++offset])
 	{
-		if (tmp[offset] == '\n')
+		if (back_up[fd][offset] == '\n')
 		{
 			index = -1;
 			*line = (char *)malloc(offset + 1);
 			(*line)[offset] = 0;
-
-			while (tmp[++index] != '\n')
-				(*line)[index] = tmp[index];
-
+			while (back_up[fd][++index] != '\n')
+				(*line)[index] = back_up[fd][index];
+			ft_strlcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - offset);
 			return (1);
 		}
 	}
-
 	read_size = read(fd, buff, BUFFER_SIZE);
-
-	while (read_size > 0)
+	buff[read_size] = 0;
+	while (-1 < read_size)
 	{
 		offset = -1;
-		back_up[fd] = ft_strjoin(back_up[fd], buff);
-
-		while (back_up[fd][++offset])
+		replace(&back_up[fd], ft_strjoin(back_up[fd], buff));
+		while (back_up[fd][++offset] || !read_size)
 		{
-			if (back_up[fd][offset] == '\n')
+			if (back_up[fd][offset] == '\n' || (!read_size && !back_up[fd][offset]))
 			{
 				index = -1;
 				*line = (char *)malloc(offset + 1);
 				(*line)[offset] = 0;
-
-				while (back_up[fd][++index] != '\n')
+				while (back_up[fd][++index] && back_up[fd][index] != '\n')
 					(*line)[index] = back_up[fd][index];
-
-				// printf("💚%s offset: %zu, back_up[offset]: %s ========\n", back_up[fd], offset, back_up[offset]);
-				index = -1;
-				while (back_up[fd][++index])
+				ft_strlcpy(back_up[fd], back_up[fd] + offset + 1, ft_strlen(back_up[fd]) - offset);
+				if (read_size == 0)
 				{
-					printf("💚%s offset: %zu, back_up[offset]: %c ========\n", back_up[fd], offset, back_up[fd][index]);
+					free(back_up[fd]);
+					back_up[fd] = 0;
 				}
-
-				return (1);
+				return (0 < read_size);
 			}
 		}
 		read_size = read(fd, buff, BUFFER_SIZE);
+		buff[read_size] = 0;
 	}
-
-	if (back_up[fd])
-	{
-		*line = back_up[fd];
-		return (0);
-	}
-	return (0);
+	return (-1);
 }

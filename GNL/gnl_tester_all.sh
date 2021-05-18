@@ -125,28 +125,28 @@ cp ../get_next_line.h .
 chmod +x test.sh
 ./test.sh;
 cd ..
-# ###   ????왠 안됨
-echo "====================================="
-echo""
-echo "   ## TEST-42 test will start "
-echo""
-echo "====================================="
-read -p "  V^^v 42SEOUL v^^V"
-echo "====================================="
-echo ""
+# # ###   ????왠 안됨
+# echo "====================================="
+# echo""
+# echo "   ## TEST-42 test will start "
+# echo""
+# echo "====================================="
+# read -p "  V^^v 42SEOUL v^^V"
+# echo "====================================="
+# echo ""
 
-SECONDS=0;
-while sleep .5 && ((SECONDS <= 5)); do
-    printf '\r%s: %2d' "Testing will start soon" "$((5-SECONDS))"
-done
-printf '\n'
+# SECONDS=0;
+# while sleep .5 && ((SECONDS <= 5)); do
+#     printf '\r%s: %2d' "Testing will start soon" "$((5-SECONDS))"
+# done
+# printf '\n'
 
-### TEST-42
-git clone https://github.com/PandaCoustik/Test-42.git
-cd Test-42/test_gnl
-chmod +x test.sh
-./test.sh
-cd ../..
+# ### TEST-42
+# git clone https://github.com/PandaCoustik/Test-42.git
+# cd Test-42/test_gnl
+# chmod +x test.sh
+# ./test.sh
+# cd ../..
 
 echo "====================================="
 echo""
