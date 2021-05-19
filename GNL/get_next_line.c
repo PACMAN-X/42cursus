@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/19 01:04:11 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/19 02:32:57 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ int get_next_line(int fd, char **line)
 	if (!back_up[fd])
 		back_up[fd] = ft_strdup("");
 	offset = -1;
+
 	while (back_up[fd][++offset])
 	{
 		if (back_up[fd][offset] == '\n')
