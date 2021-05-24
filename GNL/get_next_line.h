@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:09:19 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/19 00:03:14 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/21 13:45:23 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ size_t	ft_strlen(const char *s);
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char	*ft_strjoin(char const *s1, char const *s2);
 char	*ft_strdup(const char *s);
-void	*ft_memcpy(void *dest, const void *src, size_t n);
+void *replace(char **out, char *src);
 
 #endif

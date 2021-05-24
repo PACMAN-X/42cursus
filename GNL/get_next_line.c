@@ -6,19 +6,11 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/08 18:26:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/20 01:45:19 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/05/21 13:45:00 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-
-void *replace(char **out, char *src)
-{
-	if (*out)
-		free(*out);
-	*out = src;
-	return (*out);
-}
 
 void			*make_line(char **line, char *src, size_t offset)
 {

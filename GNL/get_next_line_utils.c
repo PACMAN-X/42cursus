@@ -3,14 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/08 18:06:37 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/18 23:38:54 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/21 13:45:07 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void *replace(char **out, char *src)
+{
+	if (*out)
+		free(*out);
+	*out = src;
+	return (*out);
+}
 
 size_t		ft_strlen(const char *s)
 {
