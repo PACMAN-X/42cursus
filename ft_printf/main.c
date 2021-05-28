@@ -1,44 +1,20 @@
-#include <stdio.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <stdarg.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2021/05/28 20:51:44 by taeskim           #+#    #+#             */
+/*   Updated: 2021/05/28 21:35:45 by taeskim          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-size_t ft_printf(char *args, ...)
+#include "./includes/ft_printf.h"
+
+int	main()
 {
-	va_list ap;
-	size_t i;
-
-	i = 0;
-	va_start(ap, args);
-
-	while (args[i])
-	{
-		if (args[i] == '%')
-		{
-			i++;
-			if (args[i] == '0')
-			{
-				if (args[i] ==)
-			}
-			if (args[i] == 'd' || args[i] == 'i' || args[i] == 'u')
-				printf("%d", va_arg(ap, int));
-			else if (args[i] == 'c')
-				printf("%c", va_arg(ap, int));
-			else if (args[i] == 's')
-				printf("%s", va_arg(ap, char *));
-			else if (args[i] == '%')
-				printf("%c", args[i]);
-		}
-		else
-			printf("%c", args[i]);
-		i++;
-	}
-	va_end(ap);
-	return (i);
-}
-
-int main()
-{
-	ft_printf("%d %i %u    %% 💚%c %s", 111, 1234, 12345, 'c', "abcd");
-	return (1);
+	ft_printf("[💚% d]\n", 12);
+	printf("[💚%    d]\n", 12);
+	return (0);
 }

@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 13:42:52 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/05/28 13:10:43 by taeskim          ###   ########.fr       */
+/*   Created: 2021/05/28 17:32:05 by taeskim           #+#    #+#             */
+/*   Updated: 2021/05/28 21:32:09 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#ifndef LIBFT_H
+# define LIBFT_H
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
-{
-	size_t i;
+# include <unistd.h>
+# include <stdlib.h>
+# include <string.h>
+# include <limits.h>
 
-	i = -1;
-	while (++i < n && n != 0)
-	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return ((((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]));
-	}
-	return (0);
-}
+int	ft_isdigit(int c);
+int	ft_isalph(int c);
+
+#endif

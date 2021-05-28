@@ -1,26 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*   ft_space.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/26 13:42:52 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/05/28 13:10:43 by taeskim          ###   ########.fr       */
+/*   Created: 2021/05/28 17:20:20 by taeskim           #+#    #+#             */
+/*   Updated: 2021/05/28 17:34:17 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-int ft_memcmp(const void *s1, const void *s2, size_t n)
+size_t ft_space(s_format *s_format, const char *format, size_t index)
 {
-	size_t i;
-
-	i = -1;
-	while (++i < n && n != 0)
+	while (format[index] == ' ')
 	{
-		if (((unsigned char *)s1)[i] != ((unsigned char *)s2)[i])
-			return ((((unsigned char *)s1)[i] - ((unsigned char *)s2)[i]));
+		format++;
+		index++;
 	}
-	return (0);
+	s_format->sp = 1;
+	
+	return (index);
 }

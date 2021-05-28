@@ -9,6 +9,8 @@
 		"functional": "c",
 		"locale": "c",
 		"__locale": "c",
-		"chrono": "c"
+		"chrono": "c",
+		"unistd.h": "c",
+		"cctype": "c"
 	}
 }
