@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_space.c                                         :+:      :+:    :+:   */
+/*   ft_foramt_handler.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 17:20:20 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/28 17:34:17 by taeskim          ###   ########.fr       */
+/*   Created: 2021/05/28 17:11:52 by taeskim           #+#    #+#             */
+/*   Updated: 2021/05/31 18:06:36 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-size_t ft_space(s_format *s_format, const char *format, size_t index)
+int		ft_foramt_handler(s_format *s_format, const char *format, int index)
 {
-	while (format[index] == ' ')
+	while (!(ft_isalpha(format[index])))
 	{
-		format++;
-		index++;
+		if (format[index] == ' ')
+			index = ft_space(s_format, format, index);
 	}
-	s_format->sp = 1;
-	
 	return (index);
 }

@@ -6,36 +6,36 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/05/28 21:50:56 by taeskim          ###   ########.fr        #
+#    Updated: 2021/05/31 18:40:25 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =	libftprintf.a
+NAME        = libftprintf.a
 
-SRCS_PATH = srcs/
+SRCS_PATH    = srcs/
 
-LIBFT_PATH = libft/
+LIBFT_PATH    = libft/
 
-LIBFT_LIB = libft.a
+LIBFT_LIB    = libft.a
 
-HEADERS_FOLDER = includes/
+HEADERS_FOLDER    = includes/
 
 SRCS_FILES = \
 	./srcs/ft_printf.c \
-	./srcs/ft_flag_completer.c \
-	./srcs/ft_space.c \
+	./srcs/ft_foramt_handler.c \
+	./srcs/ft_format_handler_flag.c \
 
-SRCS_OBJS = $(SRCS_FILES:.c:.o)
+SRCS_OBJS     = ${SRCS_FILES:.c=.o}
 
-CC = gcc
+CC         = gcc
 
-CFLAGS = -Wall -Werror - Wextra
+CFLAGS         = -Wall -Wextra -Werror
 
-RM = rm -f
+RM         = rm -f
 
-AR = ar -rcs
+AR         = ar crs
 
-LIBFT_OBJS = ${LIBFT_PATH}*.o
+LIBFT_OBJS    = ${LIBFT_PATH}*.o
 
 LIBFTMAKE    = $(MAKE) -C ${LIBFT_PATH}
 
@@ -43,6 +43,7 @@ all:				${NAME}
 
 ${NAME}:    ${SRCS_OBJS} pmake
 			${AR} ${NAME} ${SRCS_OBJS} ${LIBFT_OBJS}
+			gcc main.c ${NAME}
 
 pmake:
 			${LIBFTMAKE}
@@ -55,8 +56,5 @@ fclean: 	clean
 			${RM} ${NAME} ${LIBFT_PATH}${LIBFT_LIB} a.out
 
 re:         fclean all
-
-f:
-	gcc main.c $(NAME)
 
 .PHONY:        all clean fclean re

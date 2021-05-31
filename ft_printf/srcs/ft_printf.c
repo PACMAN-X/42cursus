@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/28 21:52:44 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:05:31 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,19 @@
 
 s_format		*ft_initialize_s_format(s_format *sf)
 {
-	sf->wd = 0;
-	sf->sp = 0;
-	sf->ds = 0;
-	sf->pr = 0;
-	sf->st = 0;
+	sf->width = 0;
+	sf->space = 0;
+	sf->minus = 0;
+	sf->plus = 0;
+	sf->precision = 0;
+	sf->star = 0;
 	return (sf);
 }
 
-size_t			ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
 	s_format	*sf;
-	size_t		i;
+	int			i;
 
 	i = 0;
 	sf = (s_format *)malloc(sizeof(s_format));
@@ -37,7 +38,7 @@ size_t			ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%')
 		{
-			ft_flag_completer(sf, format, i + 1);
+			ft_foramt_handler(sf, format, i + 1);
 		}
 		i++;
 	}

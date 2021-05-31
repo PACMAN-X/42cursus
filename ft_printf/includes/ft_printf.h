@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/28 22:02:40 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/05/31 18:07:25 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,19 +22,16 @@
 typedef struct	s_format
 {
 	va_list		ap;
-	int 		wd;
-	int 		sp;
-	int 		ds;
-	int 		pr;
-	int 		st;
+	int 		width;
+	int 		space;
+	int 		minus;
+	int 		plus;
+	int 		precision;
+	int 		star;
 } 				s_format;
 
-size_t ft_printf(const char *format, ...);
-size_t ft_flag_completer(s_format *s_format, const char *format, size_t index);
-size_t ft_space(s_format *s_format, const char *format, size_t index);
-size_t ft_zero(s_format *s_format, const char *format, size_t index);
-size_t ft_star(s_format *s_format, const char *format, size_t index);
-size_t ft_dash(s_format *s_format, const char *format, size_t index);
-size_t ft_precision(s_format *s_format, const char *format, size_t index);
+int ft_printf(const char *format, ...);
+int ft_foramt_handler(s_format *s_format, const char *format, int index);
+int ft_space(s_format *s_format, const char *format, int index);
 
 #endif
