@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 20:51:44 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/28 21:35:45 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/01 22:48:18 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 int	main()
 {
-	ft_printf("[💚% d]\n", 12);
-	printf("[💚%    d]\n", 12);
+	ft_printf("[💚%10dqwerqwerqwerqwerd]\n", 100);
+	printf("[💚%10dqwerqwerqwerqwerd]\n", 100);
+	// printf("[💚%005d   ]\n", 12);
+	// printf("[💚%005d   ]\n", 12);
 	return (0);
 }

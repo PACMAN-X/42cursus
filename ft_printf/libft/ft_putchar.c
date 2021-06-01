@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putchar.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/02/27 16:26:14 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/06/01 20:42:55 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/01 13:07:44 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/01 13:12:55 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putchar_fd(char c, int fd)
+void	ft_putchar(const char *c)
 {
-	write(fd, &c, 1);
+	write(1, c, 1);
 }

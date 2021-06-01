@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 17:34:41 by taeskim           #+#    #+#              #
-#    Updated: 2021/05/28 21:54:17 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/01 22:08:20 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,6 +14,8 @@ INCLUDES = ./
 
 SRC =	ft_isalpha.c	\
 		ft_isdigit.c	\
+		ft_putchar.c	\
+		ft_itoa.c		\
 
 OBJS =	$(SRC:.c=.o)
 

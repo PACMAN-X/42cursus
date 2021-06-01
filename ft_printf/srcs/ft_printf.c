@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/05/31 18:05:31 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/01 22:39:57 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 s_format		*ft_initialize_s_format(s_format *sf)
 {
+	sf->zero = 0;
 	sf->width = 0;
 	sf->space = 0;
 	sf->minus = 0;
 	sf->plus = 0;
 	sf->precision = 0;
 	sf->star = 0;
+	sf->str = NULL;
 	return (sf);
 }
 
@@ -37,12 +39,11 @@ int				ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			ft_foramt_handler(sf, format, i + 1);
-		}
+			i = ft_foramt_handler(sf, format, i + 1);
+		ft_putchar(&format[i]);
 		i++;
 	}
-
 	va_end(sf->ap);
+	free(sf);
 	return (i);
 }

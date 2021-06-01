@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/03/04 10:28:52 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/01 20:17:43 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int								ft_atoi(const char *src)
 {
-	int							i;
 	int							sign;
 	int							num;
 
 	sign = 1;
 	num = 0;
-	i = 0;
 	while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
 		src++;
 	if (*src == '+' || *src == '-')
