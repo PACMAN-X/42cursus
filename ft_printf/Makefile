@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/01 20:25:40 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/02 15:43:38 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,6 +24,7 @@ SRCS_FILES = \
 	./srcs/ft_format_handler_flag.c \
 	./srcs/ft_format_specifier.c \
 	./srcs/ft_format_handler_digit.c \
+	./srcs/ft_format_completer.c \
 
 SRCS_OBJS     = ${SRCS_FILES:.c=.o}
 

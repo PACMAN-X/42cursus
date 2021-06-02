@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 17:34:41 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/01 22:08:20 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/02 10:52:03 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,6 +16,8 @@ SRC =	ft_isalpha.c	\
 		ft_isdigit.c	\
 		ft_putchar.c	\
 		ft_itoa.c		\
+		ft_strdup.c		\
+		ft_strlen.c		\
 
 OBJS =	$(SRC:.c=.o)
 
