@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/02 15:52:30 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/02 22:01:47 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,7 @@ int ft_space(s_format *sf, const char *format, int index);
 int	ft_plus(s_format *sf, const char *format, int index);
 int	ft_minus(s_format *sf, const char *format, int index);
 int	ft_zero(s_format *sf, const char *format, int index);
+int	ft_precision(s_format *sf, const char *format, int index);
 int ft_format_specifier(s_format *sf, const char *format, int index);
 int ft_format_width(s_format *sf, const char *format, int index);
 void ft_format_completer(s_format *sf);

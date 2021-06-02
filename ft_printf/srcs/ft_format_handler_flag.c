@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:20:20 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/01 20:13:40 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/02 22:23:07 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,7 @@ int		ft_plus(s_format *sf, const char *format, int index)
 		index++;
 
 	sf->plus = 1;
+	sf->space = 0;
 	return (index);
 }
 
@@ -45,5 +46,20 @@ int		ft_minus(s_format *sf, const char *format, int index)
 		index++;
 
 	sf->minus = 1;
+	sf->zero = 0;
+	return (index);
+}
+
+int		ft_precision(s_format *sf, const char *format, int index)
+{
+	int		num;
+
+	num = 0;
+	while (ft_isdigit(format[index]))
+	{
+		num = (num * 10) + (format[index] - '0');
+		index++;
+	}
+	sf->precision = num;
 	return (index);
 }

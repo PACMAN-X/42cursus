@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:11:52 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/02 13:55:32 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/02 22:18:49 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ int		ft_foramt_handler(s_format *sf, const char *format, int index)
 			index = ft_plus(sf, format, index);
 		if (format[index] == '-')
 			index = ft_minus(sf, format, index);
+		if (format[index] == '.')
+			index = ft_precision(sf, format, index + 1);
 		if (ft_isdigit(format[index]))
 		{
-			if (!(sf->width) && !(sf->precision))
+			if (format[index] == '0' && !(sf->width) && !(sf->precision))
 				sf->zero = 1;
 			index = ft_format_width(sf, format, index);
 		}
