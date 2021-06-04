@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
+#    By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/02 15:43:38 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/04 16:58:49 by pac-man          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,6 +25,7 @@ SRCS_FILES = \
 	./srcs/ft_format_specifier.c \
 	./srcs/ft_format_handler_digit.c \
 	./srcs/ft_format_completer.c \
+	./srcs/ft_frame_setter.c	\
 
 SRCS_OBJS     = ${SRCS_FILES:.c=.o}
 

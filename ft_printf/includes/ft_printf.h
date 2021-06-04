@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/02 22:01:47 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/04 16:59:00 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,6 @@ int	ft_precision(s_format *sf, const char *format, int index);
 int ft_format_specifier(s_format *sf, const char *format, int index);
 int ft_format_width(s_format *sf, const char *format, int index);
 void ft_format_completer(s_format *sf);
+int ft_frame_setter(s_format *sf);
 
 #endif
