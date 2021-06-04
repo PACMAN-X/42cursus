@@ -3,42 +3,50 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 21:45:03 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/01 22:38:46 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/04 13:58:39 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int			get_lenth_of(int num)
+long int	ft_abs(long int n)
 {
-	int		len;
+	return ((n < 0) ? -n : n);
+}
 
-	len = 0;
-	while (num)
+int			get_len_of(long int n)
+{
+	int len;
+
+	len = (n <= 0) ? 1 : 0;
+	while (n != 0)
 	{
-		num = num / 10;
+		n = n / 10;
 		len++;
 	}
 	return (len);
 }
 
-char		*ft_itoa(int num)
+char		*ft_itoa(int n)
 {
-	char	*str;
 	int		len;
+	int		sign;
+	char	*str;
 
-	len = get_lenth_of(num);
-	str = (char *)malloc(len + 1);
-	if (!(str))
+	sign = (n < 0) ? -1 : 0;
+	len = get_len_of(n);
+	if (!(str = (char *)ft_calloc(len + 1, sizeof(char))))
 		return (NULL);
-	str[len] = 0;
+	str[len] = '\0';
 	while (len-- > 0)
 	{
-		str[len] = num % 10 + '0';
-		num /= 10;
+		str[len] = '0' + ft_abs(n % 10);
+		n /= 10;
 	}
+	if (sign == -1)
+		str[0] = '-';
 	return (str);
 }

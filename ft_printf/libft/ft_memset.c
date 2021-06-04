@@ -5,12 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/01/04 23:20:03 by kimtaeseon        #+#    #+#             */
-/*   Updated: 2021/06/04 14:00:10 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/04 14:00:21 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/04 14:00:28 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 void	*ft_memset(void *b, int c, int len)
 {
