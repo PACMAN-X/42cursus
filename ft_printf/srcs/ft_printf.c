@@ -6,11 +6,29 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/07 13:04:44 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/07 16:35:02 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+s_format *ft_reset_s_format(s_format *sf)
+{
+	sf->zero = 0;
+	sf->width = 0;
+	sf->space = 0;
+	sf->minus = 0;
+	sf->plus = 0;
+	sf->precision = -1;
+	sf->star = 0;
+	sf->str = NULL;
+	sf->str_l = 0;
+	sf->sign = 0;
+	sf->frame_size = 0;
+	sf->specifier_num = 0;
+	sf->is_precision = 0;
+	sf->specifier = 0;
+	return (sf);
+}
 
 s_format *ft_initialize_s_format(s_format *sf)
 {
@@ -27,6 +45,7 @@ s_format *ft_initialize_s_format(s_format *sf)
 	sf->frame_size = 0;
 	sf->specifier_num = 0;
 	sf->is_precision = 0;
+	sf->specifier = 0;
 	return (sf);
 }
 
@@ -49,7 +68,10 @@ int ft_printf(const char *format, ...)
 			sf->specifier_num++;
 		}
 		else
+		{
+			ft_reset_s_format(sf);
 			ft_putchar(&format[i]);
+		}
 	}
 	i = sf->frame_size + i - sf->is_precision - (2 * sf->specifier_num);
 	va_end(sf->ap);

@@ -6,7 +6,7 @@
 #    By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/07 13:23:31 by pac-man          ###   ########.fr        #
+#    Updated: 2021/06/07 16:39:29 by pac-man          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,8 +24,9 @@ SRCS_FILES = \
 	./srcs/ft_format_handler_flag.c \
 	./srcs/ft_format_specifier.c \
 	./srcs/ft_format_handler_digit.c \
-	./srcs/ft_format_completer_di.c \
+	./srcs/ft_format_completer_diu.c \
 	./srcs/ft_format_completer_c.c \
+	./srcs/ft_format_completer_s.c \
 	./srcs/ft_frame_setter.c	\
 	./srcs/ft_pad_setter.c		\
 

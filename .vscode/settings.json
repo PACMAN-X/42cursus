@@ -13,6 +13,11 @@
 		"unistd.h": "c",
 		"cctype": "c",
 		"ft_printf.h": "c",
-		"libft.h": "c"
+		"libft.h": "c",
+		"bitset": "c",
+		"ios": "c",
+		"sstream": "c",
+		"string": "c",
+		"string_view": "c"
 	}
 }

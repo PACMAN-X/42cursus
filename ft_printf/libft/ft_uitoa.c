@@ -1,31 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_completer_c.c                            :+:      :+:    :+:   */
+/*   ft_uitoa.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 10:34:07 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/07 17:23:51 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/07 16:14:22 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/07 16:16:54 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "libft.h"
 
-void ft_format_completer_c(s_format *sf)
+char *ft_uitoa(unsigned int n)
 {
-	char c;
-	c = va_arg(sf->ap, int);
-	sf->frame_size = ft_frame_setter(sf);
+	unsigned int len;
+	int sign;
+	char *str;
 
-	if (sf->minus)
+	sign = (n < 0) ? -1 : 0;
+	len = get_len_of(n);
+	if (!(str = (char *)ft_calloc(len + 1, sizeof(char))))
+		return (NULL);
+	str[len] = '\0';
+	while (len-- > 0)
 	{
-		ft_putchar(&c);
-		ft_pad_setter(sf, sf->frame_size);
+		str[len] = '0' + ft_abs(n % 10);
+		n /= 10;
 	}
-	else
-	{
-		ft_pad_setter(sf, sf->frame_size);
-		ft_putchar(&c);
-	}
+	if (sign == -1)
+		str[0] = '-';
+	return (str);
 }

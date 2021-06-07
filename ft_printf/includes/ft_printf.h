@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/07 13:21:49 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/07 16:39:56 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct s_format
 	int frame_size;
 	int specifier_num;
 	int is_precision;
+	char specifier;
 } s_format;
 
 int ft_printf(const char *format, ...);
@@ -46,10 +47,11 @@ int ft_zero(s_format *sf, const char *format, int index);
 int ft_precision(s_format *sf, const char *format, int index);
 int ft_format_specifier(s_format *sf, const char *format, int index);
 int ft_format_width(s_format *sf, const char *format, int index);
-void ft_format_completer_di(s_format *sf);
+void ft_format_completer_diu(s_format *sf);
+void ft_format_completer_c(s_format *sf);
+void ft_format_completer_s(s_format *sf);
 int ft_frame_setter(s_format *sf);
 int ft_star(s_format *sf, const char *format, int index);
 void ft_pad_setter(s_format *sf, int frame_size);
-void ft_format_completer_c(s_format *sf);
 
 #endif
