@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_handler_flag.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
+/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:20:20 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/02 22:23:07 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/07 13:08:34 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int		ft_zero(s_format *sf, const char *format, int index)
+int ft_zero(s_format *sf, const char *format, int index)
 {
 	while (format[index] == '0')
 		index++;
@@ -21,7 +21,7 @@ int		ft_zero(s_format *sf, const char *format, int index)
 	return (index);
 }
 
-int		ft_space(s_format *sf, const char *format, int index)
+int ft_space(s_format *sf, const char *format, int index)
 {
 	while (format[index] == ' ')
 		index++;
@@ -30,7 +30,7 @@ int		ft_space(s_format *sf, const char *format, int index)
 	return (index);
 }
 
-int		ft_plus(s_format *sf, const char *format, int index)
+int ft_plus(s_format *sf, const char *format, int index)
 {
 	while (format[index] == '+')
 		index++;
@@ -40,7 +40,19 @@ int		ft_plus(s_format *sf, const char *format, int index)
 	return (index);
 }
 
-int		ft_minus(s_format *sf, const char *format, int index)
+int ft_star(s_format *sf, const char *format, int index)
+{
+	while (format[index] == '*')
+		index++;
+	if (sf->star)
+		sf->precision = va_arg(sf->ap, int);
+	else
+		sf->width = va_arg(sf->ap, int);
+
+	return (index);
+}
+
+int ft_minus(s_format *sf, const char *format, int index)
 {
 	while (format[index] == '-')
 		index++;
@@ -50,9 +62,9 @@ int		ft_minus(s_format *sf, const char *format, int index)
 	return (index);
 }
 
-int		ft_precision(s_format *sf, const char *format, int index)
+int ft_precision(s_format *sf, const char *format, int index)
 {
-	int		num;
+	int num;
 
 	num = 0;
 	while (ft_isdigit(format[index]))
@@ -60,6 +72,9 @@ int		ft_precision(s_format *sf, const char *format, int index)
 		num = (num * 10) + (format[index] - '0');
 		index++;
 	}
+	sf->star = 1;
 	sf->precision = num;
+	sf->is_precision = 1;
+	sf->zero = 0;
 	return (index);
 }

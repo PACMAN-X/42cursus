@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_format_completer_c.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 10:49:12 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/04 21:46:54 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/07 10:34:07 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/07 13:43:18 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "../includes/ft_printf.h"
 
-int ft_strlen(const char *s)
+void ft_format_completer_c(s_format *sf)
 {
-	int len;
+	char c;
 
-	len = 0;
-	if (!s || !(*s))
-		return (0);
-	while (s[len])
-		len++;
+	c = (char)va_arg(sf->ap, int);
 
-	return (len);
+	ft_putchar(&c);
 }

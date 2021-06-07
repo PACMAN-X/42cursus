@@ -5,102 +5,35 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/05/28 20:51:44 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/04 17:19:46 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/07 00:39:58 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/07 13:27:36 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
+#include "./includes/libft.h"
 
-int	main()
+int main()
 {
-	// ft_printf("[%+++ 4d]\n", 10);
-	// printf("[%+++ 4d]\n", 10);
-	// printf("✅%d\n", printf("[%+++ 4d]\n", 10));
-	// printf("[%+++ 4d]\n", -10);
-	// ft_printf("[% 05.-0000000006d]\n", 10);
-	// printf("[% 05.-0000000006d]\n", 10);
-	// ft_printf("[💚%dqwerqwerqwerqwerd        %i %c %u %d %s]\n", 100, 77777, 'a', 8888, 99999, "abc");
-	// printf("[💚%dqwerqwerqwerqwerd        %i %c %u %d %s]\n", 100, 77777, 'a', 8888, 99999, "abc");
-	// printf("[💚%005d   ]\n", 12);
-	// printf("[💚%005d   ]\n", 12);
-	// ft_printf("[%*d]\n", 12, -123456789);
-	// printf("[%*d]\n", 12, -123456789);
-	// ft_printf("[%10.10d]", 123456);
-	ft_printf("[%0+-5d]\n", -10);
-	printf("[%0+-5d]\n", -10);
-	ft_printf("[% 0+-5d]\n", 10);
-	printf("[% 0+-5d]\n", 10);
-	ft_printf("[%+-5d]\n", 10);
-	printf("[%+-5d]\n", 10);
-	ft_printf("[% +-5d]\n", 10);
-	printf("[% +-5d]\n", 10);
-	ft_printf("[%-5d]\n", 10);
-	printf("[%-5d]\n", 10);
-	ft_printf("[% -5d]\n", 10);
-	printf("[% -5d]\n", 10);
-	ft_printf("[%0-5d]\n", 10);
-	printf("[%0-5d]\n", 10);
-	ft_printf("[% 0-5d]\n", 10);
-	printf("[% 0-5d]\n", 10);
-	ft_printf("======================\n");
-	printf("======================\n");
-	ft_printf("[%0+5d]\n", 10);
-	printf("[%0+5d]\n", 10);
-	ft_printf("[% 0+5d]\n", 10);
-	printf("[% 0+5d]\n", 10);
-	ft_printf("[%+5d]\n", 10);
-	printf("[%+5d]\n", 10);
-	ft_printf("[% +5d]\n", 10);
-	printf("[% +5d]\n", 10);
-	ft_printf("[%5d]\n", 10);
-	printf("[%5d]\n", 10);
-	ft_printf("[% 5d]\n", 10);
-	printf("[% 5d]\n", 10);
-	ft_printf("[%05d]\n", 10);
-	printf("[%05d]\n", 10);
-	ft_printf("[% 05d]\n", 10);
-	printf("[% 05d]\n", 10);
-	ft_printf("@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	printf("@@@@@@@@@@@@@@@@@@@@@@@@@\n");
-	ft_printf("[%0+-5.6d]\n", 10);
-	printf("[%0+-5.6d]\n", 10);
-	ft_printf("[% 0+-5.6d]\n", 10);
-	printf("[% 0+-5.6d]\n", 10);
-	ft_printf("[%+-5.6d]\n", 10);
-	printf("[%+-5.6d]\n", 10);
-	ft_printf("[% +-5.6d]\n", 10);
-	printf("[% +-5.6d]\n", 10);
-	ft_printf("[%-5.6d]\n", 10);
-	printf("[%-5.6d]\n", 10);
-	ft_printf("[% -5.6d]\n", 10);
-	printf("[% -5.6d]\n", 10);
-	ft_printf("[%0-5.6d]\n", 10);
-	printf("[%0-5.6d]\n", 10);
-	ft_printf("[% 0-5.6d]\n", 10);
-	printf("[% 0-5.6d]\n", 10);
-	ft_printf("======================\n");
-	printf("======================\n");
-	ft_printf("[%0+5.6d]\n", 10);
-	printf("[%0+5.6d]\n", 10);
-	ft_printf("[% 0+5.6d]\n", 10);
-	printf("[% 0+5.6d]\n", 10);
-	ft_printf("[%+5.6d]\n", 10);
-	printf("[%+5.6d]\n", 10);
-	ft_printf("[% +5.6d]\n", 10);
-	printf("[% +5.6d]\n", 10);
-	ft_printf("[%5.6d]\n", 10);
-	printf("[%5.6d]\n", 10);
-	ft_printf("[% 5.6d]\n", 10);
-	printf("[% 5.6d]\n", 10);
-	ft_printf("[%05.6d]\n", 10);
-	printf("[%05.6d]\n", 10);
-	ft_printf("[% 05.6d]\n", 10);
-	printf("[% 05.6d]\n", 10);
-	// ft_printf("[%+ 10.4d]", 10);
-	// ft_printf("[%0+10.4d]", 10); // precision이 있는 경우에는 0은 무시된다.
-	// ft_printf("[% -4.4d]", 10);
-	// ft_printf("[%4.5d]", 10);
-	// printf("[%+d]", 10);
-	return (0);
+	printf("%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c", ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', '');
+	printf("✅\n");
+	printf("✅\n");
+	ft_printf("%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c%1c%2c%3c%4c", ' ', '!', '"', '#', '$', '%', '&', '\'', '(', ')', '*', '+', ',', '-', '.', '/', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', ':', ';', '<', '=', '>', '?', '@', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', '[', '\\', ']', '^', '_', '`', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '{', '|', '}', '~', '');
+	// ft_printf("%.*d", -3, 12345);
+	// printf("%.*d", -1, 12345);
+	// ft_printf("%.*d", -1, 12345);
+	// printf("%.*d", -1, 0);
+	// ft_printf("%.*d", -1, 0);
+	// ft_printf("%.0d", 0);
+	// printf("this %#x number", 17);
+	// ft_printf("%07d", -54);
+	// printf("%07d", -54);
+	// ft_printf("%03d", 0);
+	// printf("%03d", 0);
+	// ft_printf("%.0d", 0);
+	// printf("%.0d", 0);
+	// ft_printf("%.d", 0);
+	// printf("%.d", 0);
+
+	return (1);
 }
