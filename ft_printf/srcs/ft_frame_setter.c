@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:46:36 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/07 13:44:57 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/07 14:41:47 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,14 @@ int ft_frame_setter(s_format *sf)
 	int wd;
 	int sp;
 
-	if (ft_isdigit(va_arg(sf->ap, int)))
-	{
-		sf->str = ft_itoa(va_arg(sf->ap, int));
-		l = ft_strlen(sf->str);
-		sf->str_l = l;
-	}
 	wd = sf->width;
 	sp = sf->precision;
 	sf->sign = sf->space ? ' ' : 0;
 	sf->sign = sf->plus ? '+' : sf->sign;
+
+	sf->str = ft_itoa(va_arg(sf->ap, int));
+	l = ft_strlen(sf->str);
+	sf->str_l = l;
 
 	if ((sp == 0) && (sp + '0' == *sf->str))
 	{
