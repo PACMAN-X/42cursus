@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:32:05 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/07 16:16:24 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/08 10:30:14 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,5 +29,6 @@ size_t ft_strlcpy(char *dst, const char *src, size_t dstsize);
 char *ft_strjoin(char const *s1, char const *s2);
 void ft_putstr_fd(char *s, int fd);
 char *ft_uitoa(unsigned int n);
+long int ft_abs(long int n);
 
 #endif

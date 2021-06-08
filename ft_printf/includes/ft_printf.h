@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/07 16:39:56 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/08 10:26:58 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ typedef struct s_format
 	int minus;
 	int plus;
 	int precision;
-	int star;
 	char *str;
 	int str_l;
 	char sign;
