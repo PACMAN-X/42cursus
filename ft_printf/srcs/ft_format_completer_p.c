@@ -1,26 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_completer_diu.c                          :+:      :+:    :+:   */
+/*   ft_format_completer_p.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/02 15:42:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/09 03:10:49 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/08 16:49:10 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/09 02:35:06 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void ft_format_completer_diu(s_format *sf)
+void ft_format_completer_p(s_format *sf)
 {
-	sf->frame_size += ft_frame_setter(sf);
-	if (sf->precision > sf->str_l)
-		sf->str = ft_strjoin(ft_calloc(sf->precision - sf->str_l, 1), sf->str);
+	char addr[OPEN_MAX];
+	unsigned long j;
+
+	j = (unsigned long)va_arg(sf->ap, void *);
+	addr[0] = '0';
+	addr[1] = 'x';
+	addr[11] = 0;
+	if (j)
+	{
+		ft_base_getter(13, 2, addr, j, "0123456789abcdef");
+		sf->str = addr;
+	}
+	else
+		sf->str = "0x0";
+
+	sf->frame_size = ft_frame_setter(sf);
+
 	if (sf->minus)
 	{
-		if (sf->sign)
-			ft_putchar(&sf->sign);
 		ft_putstr_fd(sf->str, 1);
 		ft_pad_setter(sf, sf->frame_size);
 	}
@@ -28,16 +40,12 @@ void ft_format_completer_diu(s_format *sf)
 	{
 		if (sf->zero)
 		{
-			if (sf->sign)
-				ft_putchar(&sf->sign);
-			ft_pad_setter(sf, sf->frame_size);
 			ft_putstr_fd(sf->str, 1);
+			ft_pad_setter(sf, sf->frame_size);
 		}
 		else
 		{
 			ft_pad_setter(sf, sf->frame_size);
-			if (sf->sign)
-				ft_putchar(&sf->sign);
 			ft_putstr_fd(sf->str, 1);
 		}
 	}

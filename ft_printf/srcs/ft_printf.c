@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/08 13:57:18 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/09 01:06:58 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ s_format *ft_reset_s_format(s_format *sf)
 	sf->specifier_num = 0;
 	sf->is_precision = 0;
 	sf->specifier = 0;
+	sf->p = 0;
+	sf->pointer = 0;
 	return (sf);
 }
 
@@ -44,6 +46,8 @@ s_format *ft_initialize_s_format(s_format *sf)
 	sf->specifier_num = 0;
 	sf->is_precision = 0;
 	sf->specifier = 0;
+	sf->p = 0;
+	sf->pointer = 0;
 	return (sf);
 }
 

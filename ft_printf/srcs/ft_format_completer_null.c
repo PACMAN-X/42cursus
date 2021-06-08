@@ -1,31 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_completer_c.c                            :+:      :+:    :+:   */
+/*   ft_format_completer_null.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 10:34:07 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/08 14:38:49 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/08 15:52:30 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/08 16:17:33 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void ft_format_completer_c(s_format *sf)
+void ft_format_completer_null(s_format *sf)
 {
-	char c;
-	c = va_arg(sf->ap, int);
 	sf->frame_size = ft_frame_setter(sf);
+	printf("✅\n");
 
-	if (sf->minus)
-	{
-		ft_putchar(&c);
-		ft_pad_setter(sf, sf->frame_size);
-	}
-	else
-	{
-		ft_pad_setter(sf, sf->frame_size);
-		ft_putchar(&c);
-	}
+	ft_pad_setter(sf, sf->frame_size);
 }

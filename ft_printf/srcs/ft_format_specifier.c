@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 11:57:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/08 14:36:11 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/09 01:47:22 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,14 @@ int ft_format_specifier(s_format *sf, const char *format, int index)
 		ft_format_completer_diu(sf);
 	if (format[index] == 's')
 		ft_format_completer_s(sf);
+	if (format[index] == '%')
+		ft_format_completer_per(sf);
+	if (format[index] == 'p')
+		ft_format_completer_p(sf);
+	if (format[index] == 'x' || format[index] == 'X')
+		ft_format_completer_xX(sf);
+	// if (!(format[index]))
+	// 	ft_format_completer_null(sf);
 
 	return (index);
 }

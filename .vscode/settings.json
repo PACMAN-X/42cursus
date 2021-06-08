@@ -18,6 +18,14 @@
 		"ios": "c",
 		"sstream": "c",
 		"string": "c",
-		"string_view": "c"
+		"string_view": "c",
+		"iterator": "c",
+		"memory": "c",
+		"__string": "c",
+		"exception": "c",
+		"istream": "c",
+		"new": "c",
+		"ostream": "c",
+		"utility": "c"
 	}
 }
