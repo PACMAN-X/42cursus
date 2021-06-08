@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 00:39:58 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/08 12:58:49 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/08 14:30:15 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,23 +16,41 @@
 int main()
 {
 	static char *s_hidden = "hi low\0don't print me lol\0";
+	// printf("========================");
+	// printf("\n");
+	// ft_printf("%.s", "hello");
+	// printf("\n");
+	// printf("%.s", "hello");
+	// printf("\n");
+	// printf("========================");
+	// printf("\n");
+	// ft_printf("ft_printf: %.*s", -1, 0);
+	// printf("\n");
+	// printf("printf: %.*s", -1, 0);
+	// printf("\n");
+	// printf("========================");
+	// printf("\n");
+	// ft_printf("ft_printf: %.*s", -3, 0);
+	// printf("\n");
+	// printf("printf: %.*s", -3, 0);
+	// printf("\n");
 	printf("========================");
 	printf("\n");
-	ft_printf("ft_printf: %.*s", -1, 0);
+	ft_printf("+[%3.6s]", "\0");
 	printf("\n");
-	printf("printf: %.*s", -1, 0);
-	printf("\n");
-	printf("========================");
-	printf("\n");
-	ft_printf("ft_printf: %.*s", -3, 0);
-	printf("\n");
-	printf("printf: %.*s", -3, 0);
+	printf("-[%3.6s]", "\0");
 	printf("\n");
 	printf("========================");
 	printf("\n");
-	ft_printf("ft_printf: %3.6s", "\0");
+	ft_printf("+[%6.6s]", "\0");
 	printf("\n");
-	printf("printf: %3.6s", "\0");
+	printf("-[%6.6s]", "\0");
+	printf("\n");
+	printf("========================");
+	printf("\n");
+	ft_printf("+[%7.6s]", "\0");
+	printf("\n");
+	printf("-[%7.6s]", "\0");
 	printf("\n");
 	printf("========================");
 
@@ -42,13 +60,7 @@ int main()
 	// printf("\n");
 	// printf("printf: %05d", 43);
 	// printf("\n");
-	// printf("========================");
-	// printf("\n");
-	// ft_printf("ft_printf: %.*d", 0, 0);
-	// printf("\n");
-	// printf("printf: %.*d", 0, 0);
-	// printf("\n");
-	// printf("========================");
+
 	// printf("\n");
 	// ft_printf("%.*s", -3, 0);
 	// printf("\n");
@@ -68,8 +80,6 @@ int main()
 	// printf("\n");
 	// printf("========================");
 	// printf("\n");
-	// printf("✅%*.*d\n", 0, 0, 0);
-	// ft_printf("✅%*.*d\n", 0, 0, 0);
 
 	// ft_printf("hello, %s.", "gavin");
 	// printf("\n");

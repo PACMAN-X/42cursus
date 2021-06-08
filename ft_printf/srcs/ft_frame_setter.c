@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:46:36 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/08 12:56:22 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/08 14:35:49 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,18 +29,21 @@ int ft_frame_setter(s_format *sf)
 			sf->str = ft_itoa(va_arg(sf->ap, int));
 		if (sf->specifier == 's')
 		{
-			// if (va_arg(sf->ap, char *))
 			sf->str = va_arg(sf->ap, char *);
 			if (!(sf->str))
 				sf->str = "(null)";
-			// else
-			// sf->str = "(null)";
+
+			if (!(*sf->str))
+				sf->precision = 0;
+
+			if (!(sf->precision))
+				sf->str = 0;
 		}
 
 		l = ft_strlen(sf->str);
 		sf->str_l = l;
 
-		if (sf->specifier == 's' && sf->precision < l)
+		if (sf->specifier == 's' && sf->precision < l && sf->precision > 0)
 			l = sf->precision;
 
 		if (((sf->specifier == 'd') || (sf->specifier == 'i') || (sf->specifier == 'u')) && (sf->is_precision) && (sf->precision == 0))
@@ -48,15 +51,15 @@ int ft_frame_setter(s_format *sf)
 			*sf->str = 0;
 			l = 0;
 		}
-		if (sf->precision == -1)
+		if (sf->precision < 0)
 			sf->precision = 0;
-
-		if (sf->str[0] == '-')
-		{
-			sf->sign = '-';
-			sf->str++;
-			sf->str_l -= 1;
-		}
+		if (sf->str)
+			if (sf->str[0] == '-')
+			{
+				sf->sign = '-';
+				sf->str++;
+				sf->str_l -= 1;
+			}
 	}
 
 	if (sf->width || sf->precision)
