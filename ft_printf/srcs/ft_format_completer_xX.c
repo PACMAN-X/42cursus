@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/09 01:47:31 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/09 03:20:28 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 13:40:39 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,12 +48,12 @@ void ft_format_completer_xX(s_format *sf)
 
 	if (sf->minus)
 	{
-		ft_putstr_fd(sf->str, 1);
+		sf->tl += ft_putstr_fd(sf->str, 1);
 		ft_pad_setter(sf, sf->frame_size);
 	}
 	else
 	{
 		ft_pad_setter(sf, sf->frame_size);
-		ft_putstr_fd(sf->str, 1);
+		sf->tl += ft_putstr_fd(sf->str, 1);
 	}
 }

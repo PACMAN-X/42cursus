@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/09 01:06:58 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 13:50:51 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ s_format *ft_reset_s_format(s_format *sf)
 	sf->specifier_num = 0;
 	sf->is_precision = 0;
 	sf->specifier = 0;
-	sf->p = 0;
-	sf->pointer = 0;
+	sf->is_zero = 0;
 	return (sf);
 }
 
@@ -46,8 +45,8 @@ s_format *ft_initialize_s_format(s_format *sf)
 	sf->specifier_num = 0;
 	sf->is_precision = 0;
 	sf->specifier = 0;
-	sf->p = 0;
-	sf->pointer = 0;
+	sf->tl = 0;
+	sf->is_zero = 0;
 	return (sf);
 }
 
@@ -70,11 +69,10 @@ int ft_printf(const char *format, ...)
 			sf->specifier_num++;
 		}
 		else
-			ft_putchar(&format[i]);
+			sf->tl += ft_putchar(&format[i]);
 		ft_reset_s_format(sf);
 	}
-	i = sf->frame_size + i - sf->is_precision - (2 * sf->specifier_num);
 	va_end(sf->ap);
 	free(sf);
-	return (i);
+	return (sf->tl);
 }

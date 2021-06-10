@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/09 02:45:20 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 13:01:09 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,9 @@ typedef struct s_format
 	char specifier;
 	char p;
 	int pointer;
+	int str_null;
+	int tl;
+	int is_zero;
 } s_format;
 
 int ft_printf(const char *format, ...);
@@ -51,13 +54,14 @@ int ft_format_width(s_format *sf, const char *format, int index);
 void ft_format_completer_diu(s_format *sf);
 void ft_format_completer_c(s_format *sf);
 void ft_format_completer_s(s_format *sf);
-int ft_frame_setter(s_format *sf);
-int ft_star(s_format *sf, const char *format, int index);
-void ft_pad_setter(s_format *sf, int frame_size);
 void ft_format_completer_per(s_format *sf);
 void ft_format_completer_p(s_format *sf);
 void ft_format_completer_null(s_format *sf);
 void ft_format_completer_xX(s_format *sf);
+int ft_frame_setter(s_format *sf);
+int ft_star(s_format *sf, const char *format, int index);
+void ft_pad_setter(s_format *sf, int frame_size);
 void ft_base_getter(int frame, int index, char *addr, unsigned long input, char *base);
+int ft_istype(const char c);
 
 #endif

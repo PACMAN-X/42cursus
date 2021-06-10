@@ -26,6 +26,7 @@
 		"istream": "c",
 		"new": "c",
 		"ostream": "c",
-		"utility": "c"
+		"utility": "c",
+		"stdio.h": "c"
 	}
 }

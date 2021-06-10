@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:49:10 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/09 02:35:06 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 15:01:05 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,38 +15,48 @@
 void ft_format_completer_p(s_format *sf)
 {
 	char addr[OPEN_MAX];
+	unsigned long tmp;
 	unsigned long j;
+	int frame;
 
 	j = (unsigned long)va_arg(sf->ap, void *);
-	addr[0] = '0';
-	addr[1] = 'x';
-	addr[11] = 0;
+	tmp = j;
+	frame = 1;
+
+	sf->str = ft_strdup("0x");
+
+	while (tmp / 16 != 0)
+	{
+		tmp = tmp / 16;
+		frame++;
+	}
 	if (j)
 	{
-		ft_base_getter(13, 2, addr, j, "0123456789abcdef");
-		sf->str = addr;
+		ft_base_getter(frame, 0, addr, j, "0123456789abcdef");
+		addr[frame] = 0;
+		sf->str = ft_strjoin(sf->str, addr);
 	}
-	else
-		sf->str = "0x0";
+	else if (sf->precision != 0)
+		sf->str = ft_strdup("0x0");
 
 	sf->frame_size = ft_frame_setter(sf);
 
 	if (sf->minus)
 	{
-		ft_putstr_fd(sf->str, 1);
+		sf->tl += ft_putstr_fd(sf->str, 1);
 		ft_pad_setter(sf, sf->frame_size);
 	}
 	else
 	{
 		if (sf->zero)
 		{
-			ft_putstr_fd(sf->str, 1);
+			sf->tl += ft_putstr_fd(sf->str, 1);
 			ft_pad_setter(sf, sf->frame_size);
 		}
 		else
 		{
 			ft_pad_setter(sf, sf->frame_size);
-			ft_putstr_fd(sf->str, 1);
+			sf->tl += ft_putstr_fd(sf->str, 1);
 		}
 	}
 }

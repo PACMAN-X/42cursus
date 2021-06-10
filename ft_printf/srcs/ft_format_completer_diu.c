@@ -6,7 +6,7 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:42:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/09 03:10:49 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 13:46:21 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 
 void ft_format_completer_diu(s_format *sf)
 {
-	sf->frame_size += ft_frame_setter(sf);
+	sf->frame_size = ft_frame_setter(sf);
+
 	if (sf->precision > sf->str_l)
 		sf->str = ft_strjoin(ft_calloc(sf->precision - sf->str_l, 1), sf->str);
 	if (sf->minus)
 	{
 		if (sf->sign)
-			ft_putchar(&sf->sign);
-		ft_putstr_fd(sf->str, 1);
+			sf->tl += ft_putchar(&sf->sign);
+		sf->tl += ft_putstr_fd(sf->str, 1);
 		ft_pad_setter(sf, sf->frame_size);
 	}
 	else
@@ -29,16 +30,16 @@ void ft_format_completer_diu(s_format *sf)
 		if (sf->zero)
 		{
 			if (sf->sign)
-				ft_putchar(&sf->sign);
+				sf->tl += ft_putchar(&sf->sign);
 			ft_pad_setter(sf, sf->frame_size);
-			ft_putstr_fd(sf->str, 1);
+			sf->tl += ft_putstr_fd(sf->str, 1);
 		}
 		else
 		{
 			ft_pad_setter(sf, sf->frame_size);
 			if (sf->sign)
-				ft_putchar(&sf->sign);
-			ft_putstr_fd(sf->str, 1);
+				sf->tl += ft_putchar(&sf->sign);
+			sf->tl += ft_putstr_fd(sf->str, 1);
 		}
 	}
 }

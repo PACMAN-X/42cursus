@@ -6,15 +6,23 @@
 /*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 21:54:22 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/04 22:00:18 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 13:45:34 by pac-man          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void ft_putstr_fd(char *s, int fd)
+int ft_putstr_fd(char *s, int fd)
 {
+	int i;
+	int tmp_fd;
+
+	i = 0;
+	tmp_fd = fd;
 	if (!s)
-		return;
-	write(fd, s, ft_strlen(s));
+		return (0);
+	while (s[i])
+		ft_putchar(&s[i++]);
+
+	return (i);
 }
