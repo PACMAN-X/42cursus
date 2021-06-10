@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 00:39:58 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 15:01:21 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:15:19 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,24 +16,129 @@
 int main()
 {
 
-	static char a01;
-	static unsigned char a02;
-	static short a03;
-	static unsigned short a04;
-	static int a05;
-	static unsigned int a06;
-	static long a07;
-	static unsigned long a08;
-	static long long a09;
-	static unsigned long long a10;
-	static char *a11;
-	static void *a12;
+	// static char a01;
+	// static unsigned char a02;
+	// static short a03;
+	// static unsigned short a04;
+	// static int a05;
+	// static unsigned int a06;
+	// static long a07;
+	// static unsigned long a08;
+	// static long long a09;
+	// static unsigned long long a10;
+	// static char *a11;
+	// static void *a12;
 
-	int width;
-	int precision;
+	// int width;
+	// int precision;
 
-	width = 1;
-	precision = 0;
+	// width = 1;
+	// precision = 0;
+	int		a = -4;
+	int		b = 0;
+	char	c = 'a';
+	int		d = 2147483647;
+	int		e = -2147483648;
+	int		f = 42;
+	int		g = 25;
+	int		h = 4200;
+	int		i = 8;
+	int		j = -12;
+	int		k = 123456789;
+	int		l = 0;
+	int		m = -12345678;
+	char	*n = "abcdefghijklmnop";
+	char	*o = "-a";
+	char	*p = "-12";
+	char	*q = "0";
+	char	*r = "%%";
+	char	*s = "-2147483648";
+	char	*t = "0x12345678";
+	char	*u = "-0";
+
+	char pad = '-';
+
+	printf("%d", ft_strlen(&pad));
+
+	// '-'의 strlen의 0길이문제 1로 나올줄 알았는데 ft_strlen에서 2로 나옴. 원인은 모르겠음..
+
+	// s -> segfault가 나옴..
+	
+
+	// printf("%lu", strlen(&c));
+// int d = -135;
+
+// printf("-->|%-4.*d|<--\n", -4, d);
+// ft_printf("-->|%-4.*d|<--\n", -4, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", -3, d);
+// ft_printf("-->|%-4.*d|<--\n", -3, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", -2, d);
+// ft_printf("-->|%-4.*d|<--\n", -2, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", -1, d);
+// ft_printf("-->|%-4.*d|<--\n", -1, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", 0, d);
+// ft_printf("-->|%-4.*d|<--\n", 0, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", 1, d);
+// ft_printf("-->|%-4.*d|<--\n", 1, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", 2, d);
+// ft_printf("-->|%-4.*d|<--\n", 2, d);
+// printf("===========================\n");
+// printf("-->|%-4.*d|<--\n", 3, d);
+// ft_printf("-->|%-4.*d|<--\n", 3, d);
+// printf("===========================\n");
+
+	// printf("===========================\n");
+	// printf(" --- Return : %d\n", printf("%1s", o));
+	// printf("\n");
+	// printf(" --- Return : %d\n", ft_printf("%1s", o)); 
+	// printf("===========================\n");
+
+	// printf("===========================\n");
+	// printf(" --- Return : %d\n", printf("%1s, %1s, %1s, %1s, %1s", n, o, p, q, r));
+	// printf("\n");
+	// printf(" --- Return : %d\n", ft_printf("%1s, %1s, %1s, %1s, %1s", n, o, p, q, r)); 
+	// printf("===========================\n");
+
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", printf("-->|%-4.*d|<--\n", 3, d));
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", ft_printf("-->|%-4.*d|<--\n", 3, d));
+	// printf("===========================\n");
+ 
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", printf("|%62-+-012.-9120-+4i|", j));
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", ft_printf("|%62-+-012.-9120-+4i|", j));
+	// printf("===========================\n");
+
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 1\n", printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
+	// printf(" --- size: 🍿%d🍿 Return : 1\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 2\n", printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d", i, j, k, l, m, c, e, d));
+	// printf(" --- size: 🍿%d🍿 Return : 2\n", ft_printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d", i, j, k, l, m, c, e, d));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 3\n", printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d));
+	// printf(" --- size: 🍿%d🍿 Return : 3\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 4\n", printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d", i, j, k, l, m, c, e, d));
+	// printf(" --- size: 🍿%d🍿 Return : 4\n", ft_printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d", i, j, k, l, m, c, e, d));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 5\n", printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d", i, j, k, l, m, c, e, d));
+	// printf(" --- size: 🍿%d🍿 Return : 5\n", ft_printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d", i, j, k, l, m, c, e, d));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", printf("|%4i|", j));
+	// printf(" --- size: 🍿%d🍿 Return : 6\n", ft_printf("|%4i|", j));
+	// printf("===========================\n");
+	// printf(" --- size: 🍿%d🍿 Return : 7\n", printf("%5i, %5d, %5d, %5d, %5d, %5d, %5d, %5d", i, j, k, l, m, c, e, d));
+	// printf(" --- size: 🍿%d🍿 Return : 7\n", ft_printf("%5i, %5d, %5d, %5d, %5d, %5d, %5d, %5d", i, j, k, l, m, c, e, d));
+	// printf("===========================\n");
+
+	// ft_printf("|%.*o|", -3, 12345);
 
 	// printf("===========================\n");
 	// printf("|%*.*p|\n", width, precision, NULL);

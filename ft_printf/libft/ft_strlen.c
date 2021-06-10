@@ -3,24 +3,24 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 10:49:12 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/04 21:46:54 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 17:15:18 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include "stdio.h"
 
 int ft_strlen(const char *s)
 {
 	int len;
-
+	
 	len = 0;
 	if (!s || !(*s))
 		return (0);
 	while (s[len])
 		len++;
-
 	return (len);
 }

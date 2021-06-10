@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/10 13:01:09 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 16:30:22 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,8 @@ typedef struct s_format
 	int str_l;
 	char sign;
 	int frame_size;
-	int specifier_num;
 	int is_precision;
 	char specifier;
-	char p;
-	int pointer;
-	int str_null;
 	int tl;
 	int is_zero;
 } s_format;
@@ -63,5 +59,6 @@ int ft_star(s_format *sf, const char *format, int index);
 void ft_pad_setter(s_format *sf, int frame_size);
 void ft_base_getter(int frame, int index, char *addr, unsigned long input, char *base);
 int ft_istype(const char c);
+void	ft_bzero(void *s, size_t n);
 
 #endif

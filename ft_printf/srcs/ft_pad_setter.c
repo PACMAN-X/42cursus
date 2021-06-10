@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_pad_setter.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:11:30 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 13:26:46 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 17:29:23 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 void ft_pad_setter(s_format *sf, int frame_size)
 {
 	char pad;
+	int offset;
 
 	pad = sf->zero ? '0' : ' ';
 	pad = sf->precision ? ' ' : pad;
+	offset = sf->sign ? 1 : 0;
 
 	if (sf->specifier == 'd' || sf->specifier == 'i' || sf->specifier == 'u' || sf->specifier == 'x' || sf->specifier == 'X')
 	{
-		while (frame_size-- - ft_strlen(sf->str) - ft_strlen(&sf->sign) > 0)
+		while (frame_size-- - ft_strlen(sf->str) - offset > 0)
 			sf->tl += ft_putchar(&pad);
 	}
 

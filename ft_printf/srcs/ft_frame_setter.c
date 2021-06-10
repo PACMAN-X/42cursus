@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_frame_setter.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:46:36 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 02:13:35 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/10 18:09:23 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,11 +47,10 @@ int ft_frame_setter(s_format *sf)
 				return (sf->width);
 			}
 		}
-		if (sf->str)
+		if (sf->str && sf->specifier != 's')
 			if (sf->str[0] == '-')
 			{
 				sf->sign = '-';
-				sf->str[0] = 0;
 				sf->str++;
 			}
 		l = ft_strlen(sf->str);
@@ -83,6 +82,5 @@ int ft_frame_setter(s_format *sf)
 		else if ((sf->width <= l) && (sf->width <= sf->precision) && (sf->precision >= l))
 			l = sf->precision;
 	}
-
 	return (l);
 }
