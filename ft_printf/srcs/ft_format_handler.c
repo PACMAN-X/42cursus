@@ -6,20 +6,21 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:11:52 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/10 17:48:51 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 00:03:57 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int ft_istype(const char c)
+int		ft_istype(const char c)
 {
-	if (c == 'd' || c == 'i' || c == 'u' || c == 'c' || c == 's' || c == 'x' || c == 'X' || c == 'p')
+	if (c == 'd' || c == 'i' || c == 'u' || c == 'c'
+	|| c == 's' || c == 'x' || c == 'X' || c == 'p')
 		return (1);
 	return (0);
 }
 
-int ft_format_handler(s_format *sf, const char *format, int index)
+int		ft_format_handler(t_format *sf, const char *format, int index)
 {
 	while (!(ft_istype(format[index])) && (format[index] != '%'))
 	{
@@ -35,7 +36,8 @@ int ft_format_handler(s_format *sf, const char *format, int index)
 			index = ft_precision(sf, format, index);
 		if (ft_isdigit(format[index]))
 		{
-			if (format[index] == '0' && !(sf->minus) && !(sf->width) && sf->precision == -1)
+			if (format[index] == '0' && !(sf->minus) &&
+			!(sf->width) && sf->precision == -1)
 			{
 				sf->zero = 1;
 				sf->is_zero = 1;

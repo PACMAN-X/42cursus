@@ -6,13 +6,13 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:46:36 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 18:09:23 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 00:03:58 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int ft_frame_setter(s_format *sf)
+int ft_frame_setter(t_format *sf)
 {
 	int l;
 
@@ -34,7 +34,6 @@ int ft_frame_setter(s_format *sf)
 		if (sf->specifier == 's')
 		{
 			sf->str = va_arg(sf->ap, char *);
-
 			if (!(sf->str))
 				sf->str = "(null)";
 			if (!(*sf->str))
@@ -55,11 +54,6 @@ int ft_frame_setter(s_format *sf)
 			}
 		l = ft_strlen(sf->str);
 		sf->str_l = l;
-		if ((sf->specifier == 'd' || sf->specifier == 'i' || sf->specifier == 'u' || sf->specifier == 'x' || sf->specifier == 'X') && sf->precision > l && sf->precision > 0)
-			l = sf->precision;
-		if (sf->specifier == 's' && sf->precision < l && sf->precision > 0)
-			l = sf->precision;
-
 		if (sf->specifier == 'd' || sf->specifier == 'i' || sf->specifier == 'u' || sf->specifier == 'x' || sf->specifier == 'X')
 		{
 			if (*sf->str == '0' && (sf->precision == 0))
@@ -67,7 +61,11 @@ int ft_frame_setter(s_format *sf)
 				*sf->str = 0;
 				l = 0;
 			}
+			if (sf->precision > l && sf->precision > 0)
+				l = sf->precision;
 		}
+		if (sf->specifier == 's' && sf->precision < l && sf->precision > 0)
+			l = sf->precision;
 	}
 
 	if (sf->precision < 0)

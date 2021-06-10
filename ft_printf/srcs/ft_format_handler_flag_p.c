@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_completer_c.c                            :+:      :+:    :+:   */
+/*   ft_format_handler_flag_p.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 10:34:07 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:51 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/10 23:35:47 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/11 00:03:55 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void		ft_format_completer_c(t_format *sf)
+int		ft_space(t_format *sf, const char *format, int index)
 {
-	char	c;
+	while (format[index] == ' ')
+		index++;
+	sf->space = 1;
+	sf->zero = 0;
+	return (index);
+}
 
-	c = va_arg(sf->ap, int);
-	sf->frame_size = ft_frame_setter(sf);
-	if (sf->minus)
-	{
-		sf->tl += ft_putchar(&c);
-		ft_pad_setter(sf, sf->frame_size);
-	}
-	else
-	{
-		ft_pad_setter(sf, sf->frame_size);
-		sf->tl += ft_putchar(&c);
-	}
+int		ft_plus(t_format *sf, const char *format, int index)
+{
+	while (format[index] == '+')
+		index++;
+	sf->plus = 1;
+	sf->space = 0;
+	sf->zero = 0;
+	return (index);
 }

@@ -3,21 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_completer_diu.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:42:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/10 13:46:21 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/11 00:03:52 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void ft_format_completer_diu(s_format *sf)
+void	ft_format_setter_diu(t_format *sf)
 {
-	sf->frame_size = ft_frame_setter(sf);
-
 	if (sf->precision > sf->str_l)
 		sf->str = ft_strjoin(ft_calloc(sf->precision - sf->str_l, 1), sf->str);
+}
+
+void	ft_diu_out(t_format *sf)
+{
 	if (sf->minus)
 	{
 		if (sf->sign)
@@ -42,4 +44,11 @@ void ft_format_completer_diu(s_format *sf)
 			sf->tl += ft_putstr_fd(sf->str, 1);
 		}
 	}
+}
+
+void	ft_format_completer_diu(t_format *sf)
+{
+	sf->frame_size = ft_frame_setter(sf);
+	ft_format_setter_diu(sf);
+	ft_diu_out(sf);
 }

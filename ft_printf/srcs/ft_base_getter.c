@@ -3,19 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   ft_base_getter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/09 01:53:04 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 14:31:10 by pac-man          ###   ########.fr       */
+/*   Created: 2021/06/10 22:40:11 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/11 00:03:51 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-void ft_base_getter(int frame, int index, char *addr, unsigned long input, char *base)
+void	ft_base_getter(t_format *sf, int i, char *str, unsigned long n)
 {
-	index++;
-	if (input / ft_strlen(base) != 0)
-		ft_base_getter(frame, index, addr, input / ft_strlen(base), base);
-	addr[frame - index] = base[input % ft_strlen(base)];
+	i++;
+	if (n / ft_strlen(sf->base) != 0)
+		ft_base_getter(sf, i, str, n / ft_strlen(sf->base));
+	str[sf->frame - i] = sf->base[n % ft_strlen(sf->base)];
 }

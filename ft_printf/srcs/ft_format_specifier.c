@@ -3,30 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   ft_format_specifier.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pac-man <pac-man@student.42.fr>            +#+  +:+       +#+        */
+/*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/01 11:57:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/10 04:37:38 by pac-man          ###   ########.fr       */
+/*   Updated: 2021/06/11 00:21:34 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
 
-int ft_format_specifier(s_format *sf, const char *format, int index)
+int		ft_format_specifier(t_format *sf, const char *format, int i)
 {
-	sf->specifier = format[index];
-	if (format[index] == 'c')
+	sf->specifier = format[i];
+	if (format[i] == 'c')
 		ft_format_completer_c(sf);
-	if (format[index] == 'd' || format[index] == 'i' || format[index] == 'u')
+	if (format[i] == 'd' || format[i] == 'i' || format[i] == 'u')
 		ft_format_completer_diu(sf);
-	if (format[index] == 's')
+	if (format[i] == 's')
 		ft_format_completer_s(sf);
-	if (format[index] == '%')
+	if (format[i] == '%')
 		ft_format_completer_per(sf);
-	if (format[index] == 'p')
-		ft_format_completer_p(sf);
-	if (format[index] == 'x' || format[index] == 'X')
-		ft_format_completer_xX(sf);
-
-	return (index);
+	if (format[i] == 'p' || format[i] == 'x' || format[i] == 'X')
+		ft_format_completer_px(sf);
+	return (i);
 }

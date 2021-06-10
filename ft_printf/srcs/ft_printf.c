@@ -6,12 +6,13 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/10 17:50:33 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 00:03:59 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-s_format *ft_reset_s_format(s_format *sf)
+
+t_format		*ft_reset_t_format(t_format *sf)
 {
 	sf->zero = 0;
 	sf->width = 0;
@@ -26,10 +27,12 @@ s_format *ft_reset_s_format(s_format *sf)
 	sf->is_precision = 0;
 	sf->specifier = 0;
 	sf->is_zero = 0;
+	sf->frame = 0;
+	sf->base = 0;
 	return (sf);
 }
 
-s_format *ft_initialize_s_format(s_format *sf)
+t_format		*ft_initialize_t_format(t_format *sf)
 {
 	sf->zero = 0;
 	sf->width = 0;
@@ -45,23 +48,25 @@ s_format *ft_initialize_s_format(s_format *sf)
 	sf->specifier = 0;
 	sf->tl = 0;
 	sf->is_zero = 0;
+	sf->frame = 0;
+	sf->base = 0;
 	return (sf);
 }
 
-int ft_printf(const char *format, ...)
+int				ft_printf(const char *format, ...)
 {
-	s_format sf;
-	int i;
+	t_format	sf;
+	int			i;
 
 	i = -1;
-	ft_initialize_s_format(&sf);
+	ft_initialize_t_format(&sf);
 	va_start(sf.ap, format);
 	while (format[++i])
 	{
 		if (format[i] == '%')
 		{
 			i = ft_format_handler(&sf, format, i + 1);
-			ft_reset_s_format(&sf);
+			ft_reset_t_format(&sf);
 		}
 		else
 			sf.tl += ft_putchar(&format[i]);
