@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:28:25 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:21:23 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 01:22:49 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ void			ft_format_completer_c(t_format *sf);
 void			ft_format_completer_s(t_format *sf);
 void			ft_format_completer_per(t_format *sf);
 void			ft_format_completer_px(t_format *sf);
-int				ft_frame_setter(t_format *sf);
+void			ft_frame_setter(t_format *sf);
 int				ft_star(t_format *sf, const char *format, int index);
 void			ft_pad_setter(t_format *sf, int frame_size);
 void			ft_base_getter(t_format *sf, int i, char *str, unsigned long n);

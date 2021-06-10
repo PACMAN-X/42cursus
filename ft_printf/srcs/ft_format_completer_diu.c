@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:42:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:52 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 01:21:44 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ void	ft_diu_out(t_format *sf)
 
 void	ft_format_completer_diu(t_format *sf)
 {
-	sf->frame_size = ft_frame_setter(sf);
+	ft_frame_setter(sf);
 	ft_format_setter_diu(sf);
 	ft_diu_out(sf);
 }

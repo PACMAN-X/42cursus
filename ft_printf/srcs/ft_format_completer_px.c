@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:49:10 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 00:12:15 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 01:37:34 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,7 +93,7 @@ void				ft_x_out(t_format *sf)
 void				ft_format_completer_px(t_format *sf)
 {
 	ft_format_setter_px(sf);
-	sf->frame_size = ft_frame_setter(sf);
+	ft_frame_setter(sf);
 	if (sf->specifier == 'p')
 		ft_p_out(sf);
 	else
