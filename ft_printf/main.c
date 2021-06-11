@@ -5,16 +5,16 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/07 00:39:58 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/10 22:20:36 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/11 13:25:07 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/11 13:31:53 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/ft_printf.h"
 #include "./includes/libft.h"
 
-int main()
+int	main()
 {
-	ft_printf("%s", "abc");
 	return (1);
 }
+
