@@ -1,20 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_format_handler_digit.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/11 13:25:07 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 13:31:53 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/01 20:06:38 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/11 16:06:42 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./includes/ft_printf.h"
-#include "./includes/libft.h"
+#include "ft_printf.h"
 
-int	main()
+int		ft_format_width(t_format *sf, const char *format, int index)
 {
-	return (1);
-}
+	int	num;
 
+	num = 0;
+	while (ft_isdigit(format[index]))
+	{
+		num = (num * 10) + (format[index] - '0');
+		index++;
+	}
+	sf->width = num;
+	return (index);
+}

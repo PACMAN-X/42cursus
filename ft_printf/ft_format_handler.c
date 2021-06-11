@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:11:52 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:57 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:06:41 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		ft_istype(const char c)
 {

@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:20:20 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:55 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:06:41 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int		ft_zero(t_format *sf, const char *format, int index)
 {

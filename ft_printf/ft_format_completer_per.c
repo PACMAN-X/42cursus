@@ -1,27 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_handler_digit.c                          :+:      :+:    :+:   */
+/*   ft_format_completer_per.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/01 20:06:38 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:54 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/08 14:38:05 by pac-man           #+#    #+#             */
+/*   Updated: 2021/06/11 16:04:51 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int		ft_format_width(t_format *sf, const char *format, int index)
+void		ft_format_completer_per(t_format *sf)
 {
-	int	num;
+	char	c;
 
-	num = 0;
-	while (ft_isdigit(format[index]))
+	c = '%';
+	sf->precision = 0;
+	sf->plus = 0;
+	if (sf->minus)
 	{
-		num = (num * 10) + (format[index] - '0');
-		index++;
+		sf->zero = 0;
+		sf->tl += ft_putchar(&c);
+		if (sf->width > 1)
+			ft_pad_setter(sf, sf->width);
 	}
-	sf->width = num;
-	return (index);
+	else
+	{
+		if (sf->is_zero && !(sf->zero))
+			sf->zero = 1;
+		if (sf->width > 1)
+			ft_pad_setter(sf, sf->width);
+		sf->tl += ft_putchar(&c);
+	}
 }

@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_format_handler_flag_p.c                         :+:      :+:    :+:   */
+/*   ft_base_getter.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/10 23:35:47 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:55 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/10 22:40:11 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/11 16:03:50 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
-int		ft_space(t_format *sf, const char *format, int index)
+void	ft_base_getter(t_format *sf, int i, char *str, unsigned long n)
 {
-	while (format[index] == ' ')
-		index++;
-	sf->space = 1;
-	sf->zero = 0;
-	return (index);
-}
-
-int		ft_plus(t_format *sf, const char *format, int index)
-{
-	while (format[index] == '+')
-		index++;
-	sf->plus = 1;
-	sf->space = 0;
-	sf->zero = 0;
-	return (index);
+	i++;
+	if (n / ft_strlen(sf->base) != 0)
+		ft_base_getter(sf, i, str, n / ft_strlen(sf->base));
+	str[sf->frame - i] = sf->base[n % ft_strlen(sf->base)];
 }

@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/02 15:42:22 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 01:21:44 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:04:12 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void	ft_format_setter_diu(t_format *sf)
 {

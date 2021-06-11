@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 13:11:30 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 00:03:59 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:06:39 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void		ft_pad_setter_diux(t_format *sf, int frame_size, char pad)
 {

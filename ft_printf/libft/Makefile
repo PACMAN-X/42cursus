@@ -6,11 +6,13 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 17:34:41 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/11 13:20:22 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/11 16:28:54 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-INCLUDES = ./
+GCC = gcc
+CFLAGS = -Wall -Wextra -Werror
+NAME = libft.a
 
 SRC =	ft_isalpha.c	\
 		ft_isdigit.c	\
@@ -25,29 +27,23 @@ SRC =	ft_isalpha.c	\
 		ft_putstr_fd.c  \
 		ft_uitoa.c		\
 
-OBJS =	$(SRC:.c=.o)
+OBJS = $(SRCS:.c=.o)
+INCLUDE = -I ./libft.h
 
-NAME =	libft.a
+all : $(NAME)
 
-CC =	gcc
+%.o : %.c
+	$(GCC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
-RM =	rm -f
+$(NAME) : $(OBJS)
+	ar rcs $@ $^
 
-CFLAGS = -Wall -Wextra -Werror
+clean : 
+	rm -f $(OBJS)
 
-$(NAME) :
-	$(CC) $(CFLAGS) $(SRC) -c -I$(INCLUDES)
-	ar -rc $(NAME) $(OBJS)
-	ranlib $(NAME)
+fclean : 
+	rm -f $(NAME)
 
-all: $(NAME)
+re : fclean all
 
-clean:
-	$(RM) $(OBJS)
-
-fclean: clean
-		$(RM) $(NAME)
-
-re: fclean all
-
-.PHONY: clean fclean re all
+.PHONY : all clean fclean re bonus

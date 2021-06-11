@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 16:49:10 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 01:37:34 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:06:46 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 int					ft_frame_getter(unsigned long tmp)
 {

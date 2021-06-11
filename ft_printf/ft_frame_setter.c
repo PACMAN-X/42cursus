@@ -6,11 +6,11 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/04 16:46:36 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 01:49:03 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/11 16:06:40 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include "ft_printf.h"
 
 void		ft_frame_s_conditions(t_format *sf)
 {

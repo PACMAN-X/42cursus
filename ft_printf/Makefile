@@ -6,64 +6,70 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/11 13:20:10 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/11 16:30:01 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = libftprintf.a
+CC			= gcc
+CFLAGS		= -Wall -Wextra -Werror
 
-SRCS_PATH    = srcs/
+NAME		= ./libftprintf.a
+LIBFT		= libft
+LIBFT_LIB	= libft.a
 
-LIBFT_PATH    = libft/
+SRCS_LIBFT =	\
+		./${LIBFT}/ft_isalpha.c		\
+		./${LIBFT}/ft_isdigit.c		\
+		./${LIBFT}/ft_putchar.c		\
+		./${LIBFT}/ft_itoa.c		\
+		./${LIBFT}/ft_strdup.c		\
+		./${LIBFT}/ft_strlen.c		\
+		./${LIBFT}/ft_calloc.c		\
+		./${LIBFT}/ft_memset.c		\
+		./${LIBFT}/ft_strjoin.c		\
+		./${LIBFT}/ft_strlcpy.c		\
+		./${LIBFT}/ft_putstr_fd.c  	\
+		./${LIBFT}/ft_uitoa.c		\
 
-LIBFT_LIB    = libft.a
+OBJS_LIBFT = ${SRCS_LIBFT:.c=.o}
 
-SRCS_FILES = \
-	./srcs/ft_printf.c					\
-	./srcs/ft_format_handler.c			\
-	./srcs/ft_format_handler_flag.c		\
-	./srcs/ft_format_specifier.c		\
-	./srcs/ft_format_handler_digit.c	\
-	./srcs/ft_format_completer_diu.c	\
-	./srcs/ft_format_completer_c.c		\
-	./srcs/ft_format_completer_s.c		\
-	./srcs/ft_frame_setter.c			\
-	./srcs/ft_pad_setter.c				\
-	./srcs/ft_format_completer_per.c	\
-	./srcs/ft_format_completer_px.c		\
-	./srcs/ft_base_getter.c				\
-	./srcs/ft_format_handler_flag_p.c	\
+SRCS = \
+	./ft_printf.c					\
+	./ft_format_handler.c			\
+	./ft_format_handler_flag.c		\
+	./ft_format_specifier.c			\
+	./ft_format_handler_digit.c		\
+	./ft_format_completer_diu.c		\
+	./ft_format_completer_c.c		\
+	./ft_format_completer_s.c		\
+	./ft_frame_setter.c				\
+	./ft_pad_setter.c				\
+	./ft_format_completer_per.c		\
+	./ft_format_completer_px.c		\
+	./ft_base_getter.c				\
+	./ft_format_handler_flag_p.c	\
 
-SRCS_OBJS     = ${SRCS_FILES:.c=.o}
+OBJS		= $(SRCS:.c=.o)
+INCS		= ./
 
-CC         = gcc
+.c.o :
+	$(CC) $(CFLAGS) -c $< -o $(<:.c=.o) -I $(INCS)
 
-CFLAGS         = -Wall -Wextra -Werror
+$(NAME) : $(OBJS) $(OBJS_LIBFT)
+	ar rc $(LIBFT)/$(LIBFT_LIB) $(OBJS_LIBFT)
+	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
+	ar rc $(NAME) $(OBJS)
 
-RM         = rm -f
+all : $(NAME)
 
-AR         = ar crs
+fclean : clean
+	rm -f $(NAME)
+	rm -f $(LIBFT)/$(LIBFT_LIB)
 
-LIBFT_OBJS    = ${LIBFT_PATH}*.o
+clean :
+	rm -f $(OBJS)
+	rm -f $(OBJS_LIBFT)
 
-LIBFTMAKE    = $(MAKE) -C ${LIBFT_PATH}
+re : fclean all
 
-all:				${NAME}
-
-${NAME}:    ${SRCS_OBJS} pmake
-			${AR} ${NAME} ${SRCS_OBJS} ${LIBFT_OBJS}
-			gcc main.c ${NAME}
-
-pmake:
-			${LIBFTMAKE}
-
-clean:
-			make -C ${LIBFT_PATH} clean
-			${RM} ${SRCS_OBJS}
-
-fclean: 	clean
-			${RM} ${NAME} ${LIBFT_PATH}${LIBFT_LIB} a.out
-
-re:         fclean all
-
-.PHONY:        all clean fclean re
+.POHNY : all fclean clean re
