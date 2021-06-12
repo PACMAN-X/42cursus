@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/28 17:25:13 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/11 16:06:38 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/12 12:17:38 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,12 @@ t_format		*ft_initialize_t_format(t_format *sf)
 	sf->frame = 0;
 	sf->base = 0;
 	return (sf);
+}
+
+void 		ft_free(char *str)
+{
+	str = 0;
+	free(str);
 }
 
 int				ft_printf(const char *format, ...)

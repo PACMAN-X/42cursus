@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/08 14:38:05 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 16:04:51 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/12 12:20:49 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,6 @@ void		ft_format_completer_per(t_format *sf)
 			ft_pad_setter(sf, sf->width);
 		sf->tl += ft_putchar(&c);
 	}
+	free(sf->str);
+	sf->str = 0;
 }

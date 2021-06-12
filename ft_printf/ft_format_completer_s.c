@@ -6,7 +6,7 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/07 15:23:16 by pac-man           #+#    #+#             */
-/*   Updated: 2021/06/11 16:06:43 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/12 12:20:35 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,8 @@ void	ft_s_out(t_format *sf, int i)
 
 void	ft_format_completer_s(t_format *sf)
 {
-	int i;
-
-	i = 0;
 	ft_frame_setter(sf);
-	ft_s_out(sf, i);
+	ft_s_out(sf, 0);
+	free(sf->str);
+	sf->str = 0;
 }
