@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 17:34:41 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/14 15:41:46 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/14 17:06:23 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,24 +25,23 @@ SRC =	ft_isalpha.c	\
 		ft_strjoin.c	\
 		ft_strlcpy.c	\
 		ft_putstr_fd.c  \
-		ft_uitoa.c		\
+		ft_uitoa.c		
 
-OBJS = $(SRCS:.c=.o)
+OBJS = $(SRC:.c=.o)
 INCLUDE = -I ./libft.h
 
 all : $(NAME)
 
 %.o : %.c
-	$(GCC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+	$(GCC) $(CFLAGS) $(INCLUDE) -c $? -o $@
 
 $(NAME) : $(OBJS)
-	$(GCC) $(CFLAGS) -o $@
-	ar rcs $@ $^
+	ar rcs $@ $?
 
 clean : 
 	rm -f $(OBJS)
 
-fclean : 
+fclean : clean
 	rm -f $(NAME)
 
 re : fclean all

@@ -6,13 +6,13 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:32:41 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/14 13:35:47 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/14 17:56:14 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_isdigit(char *c)
+int	ft_isdigit(char c)
 {
-	return (*c > '0' && *c < '9');
+	return (c > '0' && c < '9');
 }

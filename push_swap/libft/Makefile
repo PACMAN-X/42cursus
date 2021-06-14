@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/14 13:36:10 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/14 13:36:50 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/14 17:57:14 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,14 +23,20 @@ SRCS = \
 
 SRCS_OBJS = ${SRCS:%.c=%.o}
 
+%.o : %.c
+	${CC} ${CFLAGS} -c $? -o $@
+
 ${NAME}: ${SRCS_OBJS}
-	${CC} ${CFLAGS} $^ -o $@
+	ar src $@ $?
 
 all : ${NAME}
 
 clean : 
-	${RM} ${SRCS_OBJS} ${NAME}
+	${RM} ${SRCS_OBJS}
+
+fclean : clean
+	${RM} ${NAME}
 
 re : clean all
 
-.PHONY = all clean re
+.PHONY = all clean fclean re

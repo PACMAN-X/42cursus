@@ -6,14 +6,15 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 13:33:23 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/14 13:36:06 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/14 17:55:56 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef LIBFT_H
 # define LIBFT_H
+# include <stdio.h>
 
-int	ft_isdigit(char *c);
+int	ft_isdigit(char c);
 
 
 #endif

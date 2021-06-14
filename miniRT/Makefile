@@ -17,8 +17,11 @@ ${NAME}: ${SRCS_OBJS}
 	${CC} ${CFLAGS} $^ -o $@
 
 clean:
-	rm -rf ${SRCS_OBJS} ${NAME}
+	rm -rf ${SRCS_OBJS}
 
-re: clean all
+fclean: clean
+	rm -rf ${NAME}
 
-.PHONY = all clean re
+re: fclean all
+
+.PHONY = all clean fclean re

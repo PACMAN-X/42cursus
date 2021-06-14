@@ -6,20 +6,16 @@
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/14 12:27:43 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/14 13:31:55 by taeskim          ###   ########.fr       */
+/*   Updated: 2021/06/14 17:53:24 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include "push_swap.h"
 
 int	main(int argc, char **argv)
 {
-	printf("|%d||%s|\n", argc, argv[1]);
-
-	// while (ft_isdigit())
-	// {
-	// 	/* code */
-	// }
+	printf("|%d|\n", validator_num(argv[1]));
 	
 	return(1);
 }
