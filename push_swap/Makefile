@@ -5,46 +5,33 @@
 #                                                     +:+ +:+         +:+      #
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/05/28 17:34:41 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/14 15:41:46 by taeskim          ###   ########.fr        #
+#    Created: 2021/06/14 12:29:05 by taeskim           #+#    #+#              #
+#    Updated: 2021/06/14 15:00:21 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-GCC = gcc
-CFLAGS = -Wall -Wextra -Werror
-NAME = libft.a
+CC = gcc
 
-SRC =	ft_isalpha.c	\
-		ft_isdigit.c	\
-		ft_putchar.c	\
-		ft_itoa.c		\
-		ft_strdup.c		\
-		ft_strlen.c		\
-		ft_calloc.c		\
-		ft_memset.c		\
-		ft_strjoin.c	\
-		ft_strlcpy.c	\
-		ft_putstr_fd.c  \
-		ft_uitoa.c		\
+CFLAGS = -Werror -Wall -Wextra
 
-OBJS = $(SRCS:.c=.o)
-INCLUDE = -I ./libft.h
+NAME = push_swap
 
-all : $(NAME)
+RM = rm -rf
 
-%.o : %.c
-	$(GCC) $(CFLAGS) $(INCLUDE) -c $< -o $@
+SRCS = \
+	validator.c \
+	main.c \
 
-$(NAME) : $(OBJS)
-	$(GCC) $(CFLAGS) -o $@
-	ar rcs $@ $^
+SRCS_OBJS = ${SRCS:%.c=%.o}
+
+${NAME}: ${SRCS_OBJS}
+	${CC} ${CFLAGS} $^ -o $@
+
+all : ${NAME}
 
 clean : 
-	rm -f $(OBJS)
+	${RM} ${SRCS_OBJS} ${NAME}
 
-fclean : 
-	rm -f $(NAME)
+re : clean all
 
-re : fclean all
-
-.PHONY : all clean fclean re bonus
+.PHONY = all clean re

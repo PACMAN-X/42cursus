@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/28 20:43:31 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/11 16:30:01 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/14 15:40:49 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -57,7 +57,6 @@ INCS		= ./
 
 $(NAME) : $(OBJS) $(OBJS_LIBFT)
 	ar rc $(LIBFT)/$(LIBFT_LIB) $(OBJS_LIBFT)
-	cp $(LIBFT)/$(LIBFT_LIB) $(NAME)
 	ar rc $(NAME) $(OBJS)
 
 all : $(NAME)
