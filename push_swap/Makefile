@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/14 12:29:05 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/14 17:57:35 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/15 07:55:07 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ CC = gcc
 
 CFLAGS = -Werror -Wall -Wextra
 
-NAME = push_swap
+NAME = push_swap.a
 
 RM = rm -rf
 
@@ -31,8 +31,6 @@ SRCS_OBJS = ${SRCS:.c=.o}
 ${NAME}: ${SRCS_OBJS}
 	${MAKE} -C libft
 	ar src $@ $?
-
-exec : all
 	${CC} -o push_swap main.c ${NAME} ${LIB}
 
 all : ${NAME}

@@ -1,35 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/14 12:27:43 by taeskim           #+#    #+#             */
-/*   Updated: 2021/06/15 10:41:17 by taeskim          ###   ########.fr       */
+/*   Created: 2021/06/15 10:11:38 by taeskim           #+#    #+#             */
+/*   Updated: 2021/06/15 10:11:57 by taeskim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
-#include "push_swap.h"
+#include "libft.h"
 
-int	main(int argc, char **argv)
+int								ft_atoi(const char *src)
 {
-	int i;
-	int n;
+	int							sign;
+	int							num;
 
-	i = 0;
-	n = 0;
-	// 1.1 입력된 인자의 갯수만큼 쭉 돌기
-	while (argc > i++ && argv[i])
+	sign = 1;
+	num = 0;
+	while (*src == ' ' || (*src >= '\t' && *src <= '\r'))
+		src++;
+	if (*src == '+' || *src == '-')
 	{
-		n = validator_num(argv[i]);
-		if (!n)
-		{
-			printf("ERROR\n"); 
-			exit(0);
-		}
+		if (*src == '-')
+			sign = -1;
+		src++;
 	}
-	
-	return(1);
+	while (*src >= '0' && *src <= '9')
+	{
+		num = (num * 10) + (*src - '0');
+		src++;
+	}
+	return (sign * num);
 }

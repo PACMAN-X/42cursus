@@ -27,6 +27,7 @@
 		"new": "c",
 		"ostream": "c",
 		"utility": "c",
-		"stdio.h": "c"
+		"stdio.h": "c",
+		"cstdlib": "c"
 	}
 }

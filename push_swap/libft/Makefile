@@ -6,7 +6,7 @@
 #    By: taeskim <taeskim@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/06/14 13:36:10 by taeskim           #+#    #+#              #
-#    Updated: 2021/06/14 17:57:14 by taeskim          ###   ########.fr        #
+#    Updated: 2021/06/15 10:12:37 by taeskim          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,8 @@ NAME = libft.a
 RM = rm -rf
 
 SRCS = \
-	ft_isdigit.c \
+	ft_isdigit.c	\
+	ft_atoi.c		\
 
 SRCS_OBJS = ${SRCS:%.c=%.o}
 
